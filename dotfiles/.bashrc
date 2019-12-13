@@ -87,10 +87,6 @@ fi
 # colored GCC warnings and errors
 #export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
 
-# some more ls aliases
-alias ll='ls -alF'
-alias la='ls -A'
-alias l='ls -CF'
 
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
@@ -100,141 +96,10 @@ alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo
 # You may want to put all your additions into a separate file like
 # ~/.bash_aliases, instead of adding them here directly.
 # See /usr/share/doc/bash-doc/examples in the bash-doc package.
-alias repo="cd /home/morelly_t1/CodeRepo"
-alias docs="cd /home/morelly_t1/Docs"
-alias hssrepo="/home/morelly_t1/HSS_GIT/hss-git-repository/scripts/Spacewalk/PatchlevelCreation/python-migration"
-#alias rdp="rdesktop -k de -g 1850x1100 lt-0001ktj3r1.biotronik.int -u morelly_t1 -d BIOTRONIK -r sound:remote"
-alias vps="ssh morelly_1@vps"
-alias vps2="ssh morelly_1@vps2"
-alias pushdocs="docs; git add *; git commit -m "update"; git push"
-alias pushcode="repo; git add *; git commit -m "update"; git push"
-alias dhcpval="ssh mgmt-1.mgmt.testsystem-homemonitoring.int"
-alias dhcpprod="ssh mgmt-1.mgmt.biotronik-homemonitoring.int"
-alias dhcpperf="ssh dhcp-1.mgmt.perftest-homemonitoring.int"
-alias dhcpinfra="ssh  infrastructure-10.hss.int"
-alias ssh=init_ssh $@;
-alias hist="history | grep"
-alias ll='ls -hals --color=auto'
-alias ..='cd ..'
-alias c='clear'
-alias grep='grep --color=auto'
-alias egrep='egrep --color=auto'
-alias fgrep='fgrep --color=auto'
-alias ports='netstat -tulanp'
-alias cls="clear && ls -hals --color=auto"
-alias sw="ssh spacewalk.hss.int"
 
 if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
 fi
-
-set_title() {
-    ORIG=$PS1
-    TITLE="\e]2;$*\a"
-    PS1=${ORIG}${TITLE}
-}
-
-init_ssh(){
-        
-    # ENVs
-    
-    local _VAL="mgmt.testsystem-homemonitoring.int";
-    local _PROD="mgmt.biotronik-homemonitoring.int";
-    local _INFRA="mgmt.hss.int";
-    local _DWH="mgmt.datacenter-homemonitoring.int";
-    local _PERF="mgmt.perftest-homemonitoring.int"; 
-	local _HOST="";
-
-	if [[ "$#" -eq 0 ]];then
-		echo -ne "No host specified.\nExiting.\n"
-		return
-    elif [[ "$#" -eq 1 ]];then
-        $_HOST=$(echo $@ | cut -d "@" -f2)
-        echo -en "\e]2;$_HOST\a"
-        # /usr/bin/ssh -oStrictHostKeyChecking=no $1;
-        /usr/bin/ssh $1;
-    elif [[ "$#" -eq 2 ]];then
-		case "$2" in
-    		"Val" | "val")	
-    			subssh "morelly_t1" $1 $_VAL
-			;;
-			"Prod" | "prod")
-                subssh "morelly_t1" $1 $_PROD
-	        ;;
-			"perf" | "Perf")
-                 subssh "morelly_t1" $1 $_PERF
-			;;
-			"Infra" | "infra")
-        		subssh "morelly_t1" $1 $_INFRA
-	        ;;
-             "DWH" | "dwh")
-                 subssh "morelly_t1" $1 $_DWH
-             ;;
-			*)
-				echo -ne "Invalid environment.\nExiting.\n";
-            	return;
-	        ;;
-		esac;
-	elif [[ "$#" -eq 3 ]];then
-    	case "$3" in
-             "Val" | "val")
-                 subssh $1 $2 $_VAL
-             ;;
-             "Prod" | "prod")
-                 subssh $1 $2 $_PROD
-             ;;
-             "perf" | "Perf")
-                  subssh $1 $2 $_PERF
-             ;;
-             "Infra" | "infra")
-                 subssh $1 $2 $_INFRA
-             ;;
-              "DWH" | "dwh")
-                  subssh $1 $2 $_DWH
-              ;;
-             *)
-                 echo -ne "Invalid environment.\nExiting.\n";
-                 return;
-             ;;
-         esac;
-    fi
-}
-
-subssh(){
-
-	# $1 = USER
-    # $2 = HOST
-    # $3 = ENV
-	
-	local _tmp=""
-
-	if [[ $(host $2.$3 > /dev/null 2>&1; echo $?) -eq 0 ]];then
-		echo -ne "Init SSH to $2.$3.\n";
-
-		case "$3" in 
-			"$_INFRA")
-				_tmp="INFRA"
-			;;
-			"$_VAL")
-				_tmp="VAL"
-			;;
-			"$_PERF")
-				_tmp="PERF"
-			;;
-			"$_DWH")
-				_tmp="DWH"
-			;;
-			"$_PROD")
-				_tmp="PROD"
-			;;
-		esac
-		echo -en "\e]2;[$_tmp]   $2\a"
-    	/usr/local/bin/sshrc $1@$2.$3;
-	else
-    	echo -ne "Host $2.$3 does not exist.\nExiting.\n";
-        return;
-     fi
-}
 
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
