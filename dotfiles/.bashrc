@@ -251,3 +251,4 @@ PATH=$GOPATH/bin:$PATH
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 alias dotfiles='/usr/bin/git --git-dir=/home/morelly_t1/.dotfiles/ --work-tree=/home/morelly_t1'
+
