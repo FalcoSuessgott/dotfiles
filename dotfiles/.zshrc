@@ -75,6 +75,7 @@ antigen bundle zsh-users/zsh-syntax-highlighting
 antigen bundle colored-man-pages
 antigen bundle zsh-users/zsh-autosuggestions
 antigen bundle desyncr/auto-ls
+antigen bundle wfxr/forgit
 
 antigen apply
 
@@ -146,3 +147,5 @@ function find() {
 }
 
 
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

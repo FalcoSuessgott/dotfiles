@@ -23,6 +23,8 @@ link .zshrc
 link .vimrc
 link .bashrc
 
-#git_debs ohmyzsh https://github.com/ohmyzsh/ohmyzsh.git
-#git_debs powerlevel10k https://github.com/romkatv/powerlevel10k.git
-#gits autojump https://github.com/wting/autojump.git
+#git_debs ~/.ohmyzsh https://github.com/ohmyzsh/ohmyzsh.git
+#git_debs ~/powerlevel10k https://github.com/romkatv/powerlevel10k.git
+#gits ~/autojump https://github.com/wting/autojump.git
+#git_debs ~/.fzf https://github.com/junegunn/fzf.git
+
