@@ -6,7 +6,13 @@ alias sc="ssh-connect"
 export VISUAL=vim
 export EDITOR=$VISUAL
 
-export AUTO_LS_COMMANDS=(ls git-status)
+export AUTO_LS_COMMANDS=(custom_function)
+
+auto-ls-custom_function () {
+  echo "$PWD"
+  k -Ah --no-vcs
+}
+
 export ZSH_TAB_TITLE_PREFIX='$USER@$HOST'
 export LESS_TERMCAP_mb=$'\e[1;32m'
 export LESS_TERMCAP_md=$'\e[1;32m'
