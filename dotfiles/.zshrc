@@ -16,6 +16,11 @@ export LESS_TERMCAP_so=$'\e[01;33m'
 export LESS_TERMCAP_ue=$'\e[0m'
 export LESS_TERMCAP_us=$'\e[1;4;31m'
 
+export PATH=$PATH:~/.local/bin
+export GOROOT=/snap/go/5364/bin/go
+export GOPATH=$HOME/go
+export PATH=$GOPATH/bin:$GOROOT/bin:$PATH
+
 # ------------------------------- ZSH SETTINGS --------------------------------
 # ----- options -----
 unsetopt NO_BEEP
@@ -76,7 +81,7 @@ antigen bundle colored-man-pages
 antigen bundle zsh-users/zsh-autosuggestions
 antigen bundle desyncr/auto-ls
 antigen bundle wfxr/forgit
-
+antigen theme romkatv/powerlevel10k
 antigen apply
 
 [[ -s /home/morelly_t1/.autojump/etc/profile.d/autojump.sh ]] && source /home/morelly_t1/.autojump/etc/profile.d/autojump.sh
@@ -128,6 +133,11 @@ else
 	echo
 	echo
 fi
+
+if [ -f ~/.bash_aliases ]; then
+    . ~/.bash_aliases
+fi
+
 
 # -------------------------------- FUNCTIONS ---------------------------------
 function lazygit() {
