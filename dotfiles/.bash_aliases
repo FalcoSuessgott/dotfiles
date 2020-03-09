@@ -1,3 +1,5 @@
 alias gd="cd ~/git/"
 alias ll="k"
 alias l="k"
+alias gitlab-runner="docker run --rm -v $PWD:$PWD -v /var/run/docker.sock:/var/run/docker.sock -v /opt/gitlab-runner/config:/etc/gitlab-runner --workdir $PWD gitlab/gitlab-runner"
+alias vpn="sudo openconnect --verbose --protocol=nc --useragent=\"Mozilla/5.0 (Linux) Firefox\" --csd-wrapper=git/juniper-vpn-py/tncc.py --csd-user=nobody https://access.sva.de/TOTP"

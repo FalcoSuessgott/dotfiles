@@ -26,7 +26,7 @@ export PATH=$PATH:~/.local/bin
 export GOROOT=/snap/go/5364/bin/go
 export GOPATH=$HOME/go
 export PATH=$GOPATH/bin:$GOROOT/bin:$PATH
-
+export PYTHONPATH=~/.local/lib/python2.7/site-packages:~/.local/lib/python3.7/site-packages
 # ------------------------------- ZSH SETTINGS --------------------------------
 # ----- options -----
 unsetopt NO_BEEP
