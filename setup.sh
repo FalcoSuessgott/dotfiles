@@ -24,9 +24,18 @@ function main(){
 
   # Powerlevel10k
   git clone --depth=1 https://github.com/romkatv/powerlevel10k.git $ZSH_CUSTOM/themes/powerlevel10k
+    
+  # dotfiles
+  ln -sfv ~/dotfiles/dotfiles/zshrc ~/.zshrc
+  ln -sfv ~/dotfiles/dotfiles/vimrc ~/.vimrc
+  ln -sfv ~/dotfiles/dotfiles/profile ~/.profile
+  ln -sfv ~/dotfiles/dotfiles/bashrc ~/.bashrc
+  ln -sfv ~/dotfiles/dotfiles/bash_aliases ~/.bash_aliases
+  ln -sfv ~/dotfiles/dotfiles/gitconfig ~/.gitconfig
 
-  ln -sfv ~/dotfiles/dotfiles/* ~/.*
-  ln -sfv ~/dotfiles/zsh_custom_plugins/* ~/.oh-my-zsh/custom/plugins/.*
+  # zsh plugins
+  ln -sfv ~/dotfiles/zsh_custom_plugins/git ~/.oh-my-zsh/custom/plugins/.
+  ln -sfv ~/dotfiles/zsh_custom_plugins/git-flow-completion ~/.oh-my-zsh/custom/plugins/.
 }
 
 main 
