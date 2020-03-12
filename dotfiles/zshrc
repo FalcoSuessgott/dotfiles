@@ -90,7 +90,7 @@ antigen bundle wfxr/forgit
 antigen theme romkatv/powerlevel10k
 antigen apply
 
-[[ -s /home/morelly_t1/.autojump/etc/profile.d/autojump.sh ]] && source /home/morelly_t1/.autojump/etc/profile.d/autojump.sh
+[[ -s /home/$USER/.autojump/etc/profile.d/autojump.sh ]] && source /home/$USER/.autojump/etc/profile.d/autojump.sh
 
 autoload compinit && compinit
 

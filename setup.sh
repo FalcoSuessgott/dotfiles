@@ -1,30 +1,32 @@
-#!/usr/bin/bash
+#!/bin/bash
 #
-# links all dotfiles
+#   Installs dependencies 
+#   Links dotfiles
+# 
+#   Tom Morelly
+#   tom-morelly@gmx.de
+#   12032020
 #
+###################################################
 
-
-SRC="dotfiles/dotfiles"
+SRC="dotfiles"
+ZSH_CUSTOM=".oh-my-zsh/custom"
 
 function link(){
-    # $1 file
-    ln -sfv ~/$SRC/$1 ~/$1
+    # $1 src
+    # $2 dest
+    ln -sfv ~/$SRC/$1 ~/$2
 }
 
-function git_debs(){
-    # $1 dir
-    # $2 repo
+function main(){
+  # Oh my zsh
+  sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
 
-    ls ~/$1 > /dev/null || git clone $2 ~/.
+  # Powerlevel10k
+  git clone --depth=1 https://github.com/romkatv/powerlevel10k.git $ZSH_CUSTOM/themes/powerlevel10k
+
+  ln -sfv ~/dotfiles/dotfiles/* ~/.*
+  ln -sfv ~/dotfiles/zsh_custom_plugins/* ~/.oh-my-zsh/custom/plugins/.*
 }
 
-link .gitconfig
-link .zshrc
-link .vimrc
-link .bashrc
-
-#git_debs ~/.ohmyzsh https://github.com/ohmyzsh/ohmyzsh.git
-#git_debs ~/powerlevel10k https://github.com/romkatv/powerlevel10k.git
-#gits ~/autojump https://github.com/wting/autojump.git
-#git_debs ~/.fzf https://github.com/junegunn/fzf.git
-
+main 
