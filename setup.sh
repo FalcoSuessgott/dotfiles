@@ -20,10 +20,10 @@ function link(){
 
 function main(){
   # Oh my zsh
-  sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
+  # sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
 
   # Powerlevel10k
-  git clone --depth=1 https://github.com/romkatv/powerlevel10k.git $ZSH_CUSTOM/themes/powerlevel10k
+  # git clone --depth=1 https://github.com/romkatv/powerlevel10k.git $ZSH_CUSTOM/themes/powerlevel10k
     
   # dotfiles
   ln -sfv ~/dotfiles/dotfiles/zshrc ~/.zshrc
@@ -36,6 +36,10 @@ function main(){
   # zsh plugins
   ln -sfv ~/dotfiles/zsh_custom_plugins/git ~/.oh-my-zsh/custom/plugins/.
   ln -sfv ~/dotfiles/zsh_custom_plugins/git-flow-completion ~/.oh-my-zsh/custom/plugins/.
+
+  # configs
+  ln -sfv ~/dotfiles/config/bspwmrc ~/.config/bspwm/.
+  ln -sfv ~/dotfiles/config/sxhkd/sxhkdrc ~/.config/sxhkdrc/.
 }
 
 main 

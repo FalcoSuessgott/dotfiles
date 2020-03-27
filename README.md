@@ -11,7 +11,8 @@ inspired by [@daniruiz](https://github.com/daniruiz/dotfiles)
 * [zsh-autosuggestions](https://github.com/zsh-users/zsh-autosuggestions) 
 * colored-man-pages
 * [auto-ls](https://github.com/desyncr/auto-ls) 
-*  many other ..
+*  bspwm
+* sxhkdrc
 
 ## Usage
 ```
