@@ -16,7 +16,7 @@ super + alt + {q,r}
 
 # close and kill selected window
 super + q
-	bspc node close
+	bspc node --close
 
 # alternate between the tiled and monocle layout
 super + m
@@ -33,3 +33,11 @@ super + {Left, Right}
 # lock screen
 super + l
   gnome-screensaver-command --lock
+
+# swap current node with biggest
+super + Tab
+  bspc node -s biggest
+
+# firefox
+super + f 
+  firefox
