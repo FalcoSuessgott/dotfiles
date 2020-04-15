@@ -4,10 +4,19 @@ set tabstop=2
 set shiftwidth=2
 set softtabstop=2
 set expandtab  
+set autowrite
 
+let g:go_highlight_types = 1
 " Config "
 filetype off                  
 set rtp+=~/.vim/bundle/Vundle.vim
+
+set number relativenumber
+set cursorline
+set cursorcolumn
+
+" Save file as sudo when no sudo permissions
+cnoremap w!! execute 'silent! write !sudo tee % >/dev/null' <bar> edit!
 
 " Plugins "
 call vundle#begin()

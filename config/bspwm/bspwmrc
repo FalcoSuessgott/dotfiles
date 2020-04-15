@@ -1,5 +1,6 @@
 #!/bin/sh
 
+wmname LG3D & 
 sxhkd &
 xcompmgr &
 
@@ -29,3 +30,6 @@ bspc config window_gap 10
 
 # background
 feh --bg-fill ~/polybar-themes/polybar-3/wallpapers/bg-secondary.jpg
+
+# rules
+bspc rule -a goland desktop=2 follow=true
