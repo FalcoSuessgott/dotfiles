@@ -41,3 +41,7 @@ super + Tab
 # firefox
 super + f 
   firefox
+
+# focus next node
+super + {p,n}
+  bspc node -f {prev, next}.local
