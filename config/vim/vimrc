@@ -25,7 +25,7 @@ Plugin 'JamshedVesuna/vim-markdown-preview'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'fatih/vim-go'
-
+Plugin 'iamcco/markdown-preview.nvim'
 call vundle#end()
 filetype plugin indent on
 
@@ -51,3 +51,4 @@ function! LF()
     redraw!
 endfunction
 command! -bar LF call LF()
+

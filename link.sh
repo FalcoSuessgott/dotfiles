@@ -19,8 +19,9 @@ function main(){
     link bash/bashrc .bashrc
     link bash/bash_aliases .bash_aliases
 
-    link bspwm/bspwmrc .config/bspwm//.
-    
+    link bspwm/bspwmrc .config/bspwm/.
+    link bspwm/wallpaper.jpg .config/bspwm/.
+
     link git/gitconfig .gitconfig
 
     link polybar/config .config/polybar/.

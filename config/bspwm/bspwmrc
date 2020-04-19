@@ -29,7 +29,7 @@ bspc config border_width 2
 bspc config window_gap 10
 
 # background
-feh --bg-fill ~/polybar-themes/polybar-3/wallpapers/bg-secondary.jpg
+feh --bg-fill ~/.config/bspwm/wallpaper.jpg
 
 # rules
 bspc rule -a goland desktop=2 follow=true

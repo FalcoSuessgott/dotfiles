@@ -1,4 +1,4 @@
-alias dot="cd ~/dotfiles"
+alias dot="cd ~/git/dotfiles"
 alias gd="cd ~/git/"
 alias gdf="cd ~/git/dotfiles"
 alias ll="k"
