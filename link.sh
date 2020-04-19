@@ -24,6 +24,8 @@ function main(){
 
     link git/gitconfig .gitconfig
 
+    link lf/lfrc .config/lf/.
+
     link polybar/config .config/polybar/.
     link polybar/launch.sh .config/polybar/.
 
