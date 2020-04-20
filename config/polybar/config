@@ -60,7 +60,7 @@ font-3 = Symbola:pixelsize=9;1
 
 modules-left = bspwm 
 modules-center = xwindow
-modules-right = filesystem cpu memory temperature wlan eth battery volume date
+modules-right = vpn-is-running filesystem cpu memory temperature wlan eth battery volume date
 
 tray-position = right
 tray-padding = 0
@@ -70,6 +70,10 @@ wm-restack = bspwm
 scroll-up = bspwm-desknext
 scroll-down = bspwm-deskprev
 
+[module/vpn-is-running]
+type = custom/script
+exec = ~/.config/polybar/modules/vpn-is-running/vpn-is-running.sh
+interval= 10
 
 [module/xwindow]
 type = internal/xwindow
