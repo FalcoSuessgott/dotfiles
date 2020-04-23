@@ -60,7 +60,7 @@ font-3 = Symbola:pixelsize=9;1
 
 modules-left = bspwm 
 modules-center = xwindow
-modules-right = docker-container vpn-is-running filesystem cpu memory temperature wlan eth battery volume date
+modules-right = gitlab-pipelines  docker-container vpn-is-running filesystem cpu memory temperature wlan eth battery volume date
 
 tray-position = right
 tray-padding = 0
@@ -69,6 +69,12 @@ wm-restack = bspwm
 
 scroll-up = bspwm-desknext
 scroll-down = bspwm-deskprev
+
+[module/gitlab-pipelines]
+type = custom/script
+exec = ~/.config/polybar/modules/gitlab-pipelines/gitlab-pipeline.sh
+interval = 20
+format-underline = ${colors.red}
 
 [module/docker-container]
 type = custom/script
