@@ -8,7 +8,7 @@
 #   12032020
 #
 ###################################################
-SRC="$HOME/git/dotfiles/config"
+SRC="$HOME/git/dotfiles"
 
 function link(){
     ln -sfv $SRC/$1 ~/$2
@@ -16,31 +16,35 @@ function link(){
 
 function main(){
 
-    link bash/bashrc .bashrc
-    link bash/bash_aliases .bash_aliases
+    # /config 
+    link config/bash/bashrc .bashrc
+    link config/bash/bash_aliases .bash_aliases
 
-    link bspwm/bspwmrc .config/bspwm/.
-    link bspwm/wallpaper.jpg .config/bspwm/.
+    link config/bspwm/bspwmrc .config/bspwm/.
+    link config/bspwm/wallpaper.jpg .config/bspwm/.
 
-    link git/gitconfig .gitconfig
+    link config/git/gitconfig .gitconfig
 
-    link lf/lfrc .config/lf/.
+    link config/lf/lfrc .config/lf/.
 
-    link polybar/config .config/polybar/.
-    link polybar/launch.sh .config/polybar/.
-    link polybar/modules .config/polybar/.
+    link config/polybar/ .config/polybar/.
 
-    link profile .profile
+    link config/profile .profile
 
-    link sxhkd/sxhkdrc .config/sxhkd/.
+    link config/sxhkd/sxhkdrc .config/sxhkd/.
 
-    link vim/vimrc .vimrc
+    link config/vim/vimrc .vimrc
 
-    link Xresources .Xresources
+    link config/Xresources .Xresources
 
-    link zsh/zshrc .zshrc
-    link zsh/zsh_custom_plugins/git .oh-my-zsh/custom/plugins/.
-    link zsh/zsh_custom_plugins/git-flow-completion .oh-my-zsh/custom/plugins/.
+    link config/zsh/zshrc .zshrc
+    link config/zsh/zsh_custom_plugins/git .oh-my-zsh/custom/plugins/.
+    link config/zsh/zsh_custom_plugins/git-flow-completion .oh-my-zsh/custom/plugins/.
+
+    # /scripts 
+    link scripts/pash .local/bin/.
+
+    link scripts/connect_screens.sh .local/bin/,
 }
 
 main 
