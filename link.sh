@@ -19,9 +19,12 @@ function main(){
     link bash/bashrc .bashrc
     link bash/bash_aliases .bash_aliases
 
-    link bspwm/bspwmrc .config/bspwm//.
-    
+    link bspwm/bspwmrc .config/bspwm/.
+    link bspwm/wallpaper.jpg .config/bspwm/.
+
     link git/gitconfig .gitconfig
+
+    link lf/lfrc .config/lf/.
 
     link polybar/config .config/polybar/.
     link polybar/launch.sh .config/polybar/.
@@ -36,7 +39,7 @@ function main(){
 
     link zsh/zshrc .zshrc
     link zsh/zsh_custom_plugins/git .oh-my-zsh/custom/plugins/.
-    link zsh/zsh_custom_plugins/git-flow-completition .oh-my-zsh/custom/plugins/.
+    link zsh/zsh_custom_plugins/git-flow-completion .oh-my-zsh/custom/plugins/.
 }
 
 main 
