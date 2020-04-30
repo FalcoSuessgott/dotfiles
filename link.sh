@@ -28,6 +28,7 @@ function main(){
 
     link polybar/config .config/polybar/.
     link polybar/launch.sh .config/polybar/.
+    link polybar/modules .config/polybar/.
 
     link profile .profile
 
