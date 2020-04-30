@@ -1,4 +1,4 @@
-# My Dotfiles for Ubuntu < 18.04
+# My Dotfiles for Ubuntu => 18.04
 
 ![img](screenshot.png)
 ## Feature / Tools
