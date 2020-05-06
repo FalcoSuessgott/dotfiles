@@ -5,13 +5,13 @@ sxhkd &
 xcompmgr &
 
 $HOME/.config/polybar/launch.sh
-if [ "$(xrandr -q | grep connected | wc -l)" -eq "3" ];then
-  bspc monitor eDP-1 -d I II III
-  bspc monitor DVI-I-2-2 -d IV V VI
-  bspc monitor DVI-I-1-1 -d VII VIII IX
-else
-  bspc monitor eDP-1 -d I II III IV V VI VII VII IX X 
-fi
+#if [ "$(xrandr -q | grep connected | wc -l)" -eq "3" ];then
+  bspc monitor eDP-1 -d 1 2 3
+  bspc monitor DVI-I-2-2 -d 4 5 6
+  bspc monitor DVI-I-1-1 -d 7 8 9
+#else
+#  bspc monitor eDP-1 -d I II III IV V VI VII VII IX X 
+#fi
 
 bspc config border_width         2
 bspc config window_gap          12
@@ -32,4 +32,4 @@ bspc config window_gap 10
 feh --bg-fill ~/.config/bspwm/wallpaper.jpg
 
 # rules
-bspc rule -a goland desktop=2 follow=true
+bspc rule -a slack desktop='^8' state=tiled
