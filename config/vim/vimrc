@@ -5,6 +5,7 @@ set shiftwidth=2
 set softtabstop=2
 set expandtab  
 set autowrite
+set list lcs=tab:\|\ 
 
 let g:go_highlight_types = 1
 " Config "
@@ -25,7 +26,10 @@ Plugin 'JamshedVesuna/vim-markdown-preview'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'fatih/vim-go'
+Plugin 'junegunn/fzf.vim'
 Plugin 'iamcco/markdown-preview.nvim'
+Plugin 'ObserverOfTime/coloresque.vim'
+Plugin 'pearofducks/ansible-vim'
 call vundle#end()
 filetype plugin indent on
 
@@ -52,3 +56,22 @@ function! LF()
 endfunction
 command! -bar LF call LF()
 
+let g:ansible_goto_role_paths = './roles,../_common/roles'
+
+function! FindAnsibleRoleUnderCursor()
+  if exists("g:ansible_goto_role_paths")
+    let l:role_paths = g:ansible_goto_role_paths
+  else
+    let l:role_paths = "./roles"
+  endif
+  let l:tasks_main = expand("<cfile>") . "/tasks/main.yml"
+  let l:found_role_path = findfile(l:tasks_main, l:role_paths)
+  if l:found_role_path == ""
+    echo l:tasks_main . " not found"
+  else
+    execute "edit " . fnameescape(l:found_role_path)
+  endif
+endfunction
+
+au BufRead,BufNewFile */ansible/*.yml nnoremap <leader>gr :call FindAnsibleRoleUnderCursor()<CR>
+au BufRead,BufNewFile */ansible/*.yml vnoremap <leader>gr :call FindAnsibleRoleUnderCursor()<CR>

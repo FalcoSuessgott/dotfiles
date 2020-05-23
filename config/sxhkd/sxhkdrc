@@ -23,8 +23,8 @@ super + m
 	bspc desktop -l next
 
 # move to workspace
-super + {1,9}
-  bspc desktop -f {1,9}
+super + {1-9}
+  bspc desktop -f {1-9}
 
 # move through worspaces
 super + {Left, Right}
@@ -45,3 +45,9 @@ super + f
 # focus next node
 super + {p,n}
   bspc node -f {prev, next}.local
+
+# move node to desktop
+super + {y,x}
+  id=$(bspc query --nodes --node); bspc node --to-desktop {prev,next}; bspc desktop --focus next; bspc node --focus ${id} 
+
+

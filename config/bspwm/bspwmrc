@@ -5,13 +5,16 @@ sxhkd &
 xcompmgr &
 
 $HOME/.config/polybar/launch.sh
-#if [ "$(xrandr -q | grep connected | wc -l)" -eq "3" ];then
+
+# solo 
+[ $(xrandr -q | grep -w connected | wc -l) -eq 1 ] &&  bspc monitor eDP-1 -d 1 2 3 4 5 6 7 8 9
+
+# home office 
+[ $(xrandr -q | grep -w connected | wc -l) -eq 3 ] &&  {
   bspc monitor eDP-1 -d 1 2 3
-  bspc monitor DVI-I-2-2 -d 4 5 6
+  bspc monitor HDMI-1 -d 4 5 6
   bspc monitor DVI-I-1-1 -d 7 8 9
-#else
-#  bspc monitor eDP-1 -d I II III IV V VI VII VII IX X 
-#fi
+}
 
 bspc config border_width         2
 bspc config window_gap          12
@@ -32,4 +35,10 @@ bspc config window_gap 10
 feh --bg-fill ~/.config/bspwm/wallpaper.jpg
 
 # rules
-bspc rule -a slack desktop='^8' state=tiled
+bspc rule -a Spotify desktop=^1
+bspc rule -a Firefox desktop=^7
+
+bspc rule -a Teams desktop=^8 state=tiled
+bspc rule -a Slack desktop=^8 state=tiled
+
+bspc rule -a PulseUi state=floating
