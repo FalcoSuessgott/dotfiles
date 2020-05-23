@@ -14,4 +14,3 @@ gq(){
 }
 
 alias clip="clip -selection -c"
-alias vpn="export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/pulse/extra/usr/lib/x86_64-linux-gnu/ && /usr/local/pulse/pulseUi"

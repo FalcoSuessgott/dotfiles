@@ -1,9 +1,9 @@
 #!/bin/sh
 
-GITLAB_USERNAME="FalcoSuessgott"
-GITLAB_SERVER="https://gitlab.com"
-#GITLAB_ACCESS_TOKEN="cPF_9gQQ1BGnJUgSoya9"
-GITLAB_ACCESS_TOKEN="cXJujzmafAxmA8GWR4zX"
+GITLAB_USERNAME="tmorelly"
+GITLAB_SERVER="https://codehub.sva.de"
+GITLAB_ACCESS_TOKEN="yR53waXzzN7VRpVCQafa"
+#GITLAB_ACCESS_TOKEN="cXJujzmafAxmA8GWR4zX"
 HOURS_AGO="6"
 
 
