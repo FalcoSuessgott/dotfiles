@@ -11,8 +11,9 @@ $HOME/.config/polybar/launch.sh
 
 # home office 
 [ $(xrandr -q | grep -w connected | wc -l) -eq 3 ] &&  {
+ # bash ~/git/dotfiles/scripts/connect_screens.sh home
   bspc monitor eDP-1 -d 1 2 3
-  bspc monitor HDMI-1 -d 4 5 6
+  bspc monitor DVI-I-2-2 -d 4 5 6
   bspc monitor DVI-I-1-1 -d 7 8 9
 }
 
