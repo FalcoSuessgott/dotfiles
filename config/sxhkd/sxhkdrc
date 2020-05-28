@@ -1,10 +1,14 @@
 # open terminal
 super + Return
-	st
+	alacritty
 
 # launch programm
 super + d
 	dmenu_run
+
+# launch lf
+super + e
+  st -e "lf -command cd /tmp"
 
 # make sxhkd reload its configuration files:
 super + Escape

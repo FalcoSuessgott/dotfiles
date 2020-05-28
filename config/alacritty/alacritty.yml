@@ -1,5 +1,4 @@
-env:
-  TERM: alacritty
+M: alacritty
 
 window:
   padding:
@@ -24,7 +23,7 @@ font:
   normal:
     family: mono
     style: Medium
-  size: 11
+  size: 7
   offset:
     x: -1
     y: -1
@@ -35,7 +34,7 @@ font:
 draw_bold_text_with_bright_colors: false
 colors:
   primary:
-    background: '#191919'
+    background: '#282828'
     foreground: '#d8dee9'
 
   cursor:
@@ -48,10 +47,10 @@ colors:
 
   normal:
     black:   '#313539'
-    red:     '#b02626'
+    red:     '#cc241d'
     green:   '#40a62f'
     yellow:  '#f2e635'
-    blue:    '#314ad0'
+    blue:    '#458588'
     magenta: '#b30ad0'
     cyan:    '#32d0fc'
     white:   '#acadb1'
@@ -126,3 +125,4 @@ debug:
   persistent_logging: false
   log_level: Warn
   print_events: false
+

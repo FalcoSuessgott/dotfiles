@@ -30,6 +30,7 @@ Plugin 'junegunn/fzf.vim'
 Plugin 'iamcco/markdown-preview.nvim'
 Plugin 'ObserverOfTime/coloresque.vim'
 Plugin 'pearofducks/ansible-vim'
+Plugin 'lilydjwg/colorizer'
 call vundle#end()
 filetype plugin indent on
 
