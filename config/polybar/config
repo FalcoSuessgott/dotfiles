@@ -60,7 +60,7 @@ font-3 = Symbola:pixelsize=9;1
 
 modules-left = bspwm 
 modules-center = xwindow
-modules-right = gitlab-pipelines  docker-container vpn-is-running filesystem cpu memory temperature wlan battery volume date
+modules-right = gitlab-pipelines  docker-container vpn-is-running filesystem cpu memory wlan eth battery volume date
 
 tray-position = right
 tray-padding = 0
@@ -168,7 +168,7 @@ ramp-signal-foreground = ${colors.gray}
 
 [module/eth]
 type = internal/network
-interface = enp0s31f6
+interface = wlp0s20f3
 interval = 3.0
 
 format-connected-underline = ${colors.darkgreen}

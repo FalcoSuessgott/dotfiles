@@ -7,7 +7,15 @@ xcompmgr &
 $HOME/.config/polybar/launch.sh
 
 # solo 
-[ $(xrandr -q | grep -w connected | wc -l) -eq 1 ] &&  bspc monitor eDP-1 -d 1 2 3 4 5 6 7 8 9
+[ $(xrandr -q | grep -w connected | wc -l) -eq 1 ] &&  {
+  bspc monitor eDP-1 -d 1 2 3 4 5 6 7 8 9
+}
+
+# sva
+[ $(xrandr -q | grep -w connected | wc -l) -eq 2 ] &&  {
+  bspc monitor eDP-1 -d 1 2 3 4 
+  bspc monitor HDMI-1 -d 5 6 7 8 
+}
 
 # home office 
 [ $(xrandr -q | grep -w connected | wc -l) -eq 3 ] &&  {
@@ -43,3 +51,5 @@ bspc rule -a Teams desktop=^8 state=tiled
 bspc rule -a Slack desktop=^8 state=tiled
 
 bspc rule -a PulseUi state=floating
+bspc rule -a tetris state=floating
+bspc rule -a Code desktop=^4 state=tiled

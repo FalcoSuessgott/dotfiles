@@ -2,13 +2,25 @@
 super + Return
 	alacritty
 
+# launch code
+super + c
+  code
+
+# launch spotify
+super + s
+  spotify
+
+# teams
+super + t
+  teams
+
 # launch programm
 super + d
 	dmenu_run
 
 # launch lf
 super + e
-  st -e "lf -command cd /tmp"
+  alacritty -e "lf" & 
 
 # make sxhkd reload its configuration files:
 super + Escape
