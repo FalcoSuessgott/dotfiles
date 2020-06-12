@@ -1,4 +1,4 @@
-# neofetch
+neofetch --colors 11 2 11 11 --ascii_colors 15 8 11
 export LF_ICONS="\
 di=:\
 fi=:\
@@ -181,7 +181,7 @@ export LESS_TERMCAP_us=$'\e[1;4;31m'
 
 export GOROOT=""
 export GOPATH=$HOME/go
-export PATH=$PATH:/bin/go:$GOPATH/bin
+export PATH=$PATH:/bin/go:$GOPATH/bin:${HOME}/.local.bin/
 export _JAVA_AWT_WM_NONREPARENTING=1
 # export PYTHONPATH=~/.local/lib/python2.7/site-packages:~/.local/lib/python3.7/site-packages
 # ------------------------------- ZSH SETTINGS --------------------------------
@@ -248,7 +248,7 @@ antigen theme romkatv/powerlevel10k
 antigen apply
 
 [[ -s /home/$USER/.autojump/etc/profile.d/autojump.sh ]] && source /home/$USER/.autojump/etc/profile.d/autojump.sh
-
+(cat ~/.cache/wal/sequences &)
 autoload compinit && compinit
 
 # -------------------------------- POWERLEVEL ---------------------------------

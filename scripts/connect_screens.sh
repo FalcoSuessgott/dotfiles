@@ -9,5 +9,5 @@
 [ "$1" == "sva" ] && xrandr --output HDMI-1 --auto --right-of eDP-1
 
 
-bspc wm -r 
+# bspc wm -r 
 

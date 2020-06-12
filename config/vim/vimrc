@@ -31,9 +31,11 @@ Plugin 'iamcco/markdown-preview.nvim'
 Plugin 'ObserverOfTime/coloresque.vim'
 Plugin 'pearofducks/ansible-vim'
 Plugin 'lilydjwg/colorizer'
+Plugin 'dylanaraps/wal.vim'
 call vundle#end()
 filetype plugin indent on
 
+colorscheme wal
 let g:airline_theme = 'base16_spacemacs'
 
 " lf "

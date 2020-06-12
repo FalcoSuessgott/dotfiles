@@ -48,7 +48,7 @@ super + {Left, Right}
 
 # lock screen
 super + l
-  gnome-screensaver-command --lock
+  i3lock-fancy
 
 # swap current node with biggest
 super + Tab
