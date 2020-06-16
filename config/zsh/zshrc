@@ -1,4 +1,4 @@
-neofetch --colors 11 2 11 11 --ascii_colors 15 8 11
+# neofetch --colors 11 2 11 11 --ascii_colors 15 8 11
 export LF_ICONS="\
 di=:\
 fi=:\

@@ -52,9 +52,10 @@ feh --randomize --bg-fill "$WALL"
 bspc rule -a Spotify desktop=^1
 bspc rule -a Firefox desktop=^7
 
-bspc rule -a Teams desktop=^8 state=tiled
+###   bspc rule -a "Microsoft Teams - Preview" desktop=^8 state=tiled
 bspc rule -a Slack desktop=^8 state=tiled
 
 bspc rule -a PulseUi state=floating
 bspc rule -a HTW-AI-CG-Tetris state=floating
 bspc rule -a Code desktop=^4 state=tiled
+bspc rule -a Pavucontrol state=floating

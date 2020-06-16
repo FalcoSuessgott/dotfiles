@@ -64,7 +64,7 @@ font-3 = Symbola:pixelsize=9;1
 
 modules-left = bspwm 
 modules-center = xwindow
-modules-right = gitlab-pipelines  docker-container vpn-is-running filesystem cpu memory wlan eth battery volume date
+modules-right = gitlab-pipelines  docker-container vpn-is-running filesystem cpu memory wlan eth battery pulseaudio date
 
 tray-position = right
 tray-padding = 0
@@ -73,6 +73,21 @@ wm-restack = bspwm
 
 scroll-up = bspwm-desknext
 scroll-down = bspwm-deskprev
+
+[module/pulseaudio]
+type = custom/script
+tail = true
+label=%output%
+format-underline = ${colors.blue}
+
+exec = ~/.config/polybar/modules/pulseaudio/pulseaudio.sh listen
+click-right = exec pavucontrol &
+click-left = ~/.config/polybar/modules/pulseaudio/pulseaudio.sh togmute
+click-middle = ~/.config/polybar/modules/pulseaudio/pulseaudio.sh next-sink
+scroll-up = ~/.config/polybar/modules/pulseaudio/pulseaudio.sh up
+scroll-down = ~/.config/polybar/modules/pulseaudio/pulseaudio.sh down
+label-padding = 2
+label-foreground = ${colors.foreground}
 
 [module/gitlab-pipelines]
 type = custom/script
