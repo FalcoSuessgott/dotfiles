@@ -1,6 +1,6 @@
 # My Dotfiles for Ubuntu (18.04, 19.04, 20.04)
 
-![img](screenshot.png)
+![img](dotfiles.png)
 
 # Overview
 | Topic           | Tool      |
