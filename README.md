@@ -1,20 +1,23 @@
-# My Dotfiles for Ubuntu => 18.04
+# My Dotfiles for Ubuntu (18.04, 19.04, 20.04)
 
 ![img](screenshot.png)
-## Feature / Tools
-* vim
-* zsh (+antigen)
-* bspwm
-* st
-* sxhkdrc
-* bash
-* git
-* lf
-* polybar
 
-# Usage
+# Overview
+| Topic           | Tool      |
+|-----------------|-----------|
+| Terminal        | alacritty |
+| Windowmanager   | bspwm     |
+| Shortcutmanager | sxhkdrc   |
+| Statusbar       | polybar   |
+| Filemanager     | lf        |
+| Shell           | zsh       |
+| Editor          | Vim       |
 
-## Debs (still collecting )
+## Features
+* change wallpaper and adjust the terminals acoording its colors
+* ...
+
+## Debs (still collecting ) 
 ```
 sudo apt-get install git vim zsh xcb libxcb-util0-dev libxcb-ewmh-dev libxcb-randr0-dev libxcb-icccm4-dev libxcb-keysyms1-dev libxcb-xinerama0-dev libasound2-dev libxcb-xtest0-dev libxcb-shape0-dev
 curl -L git.io/antigen > antigen.zsh
