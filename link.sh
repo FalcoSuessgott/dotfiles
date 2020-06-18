@@ -22,6 +22,7 @@ function main(){
 
     link config/bspwm/bspwmrc .config/bspwm/.
     link config/bspwm/log.sh .config/bspwm/.
+    link config/bspwm/feh-blur.sh .config/bspwm/.
 
     link config/git/gitconfig .gitconfig
 
