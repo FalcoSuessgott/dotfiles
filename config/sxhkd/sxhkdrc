@@ -27,8 +27,8 @@ super + o
   mail
 
 # launch programm
-super + d
-	dmenu_run
+super + space
+	ulauncher
 
 # launch lf
 super + e
