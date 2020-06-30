@@ -5,9 +5,5 @@
 ###########################################################
 
 
-[ "$1" == "home" ] &&  xrandr --output DVI-I-2-2 --auto --right-of eDP-1 --output DVI-I-1-1 --auto --right-of DVI-I-2-2
-[ "$1" == "sva" ] && xrandr --output HDMI-1 --auto --right-of eDP-1
-
-
-# bspc wm -r 
-
+[ "$1" == "home" ]  && xrandr --output DVI-I-2-2 --auto --right-of eDP-1 --output DVI-I-1-1 --auto --right-of DVI-I-2-2
+[ "$1" == "sva" ]   && xrandr --output DP-2-2 --auto --right-of DP-2-1 --output eDP-1 --auto --right-of DP-2-2

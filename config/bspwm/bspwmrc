@@ -1,5 +1,6 @@
 #!/bin/sh
 
+bspc rule -r "*"
 wmname LG3D & 
 sxhkd &
 xcompmgr &
@@ -10,19 +11,21 @@ xcompmgr &
 }
 
 # sva
-[ $(xrandr -q | grep -w connected | wc -l) -eq 2 ] &&  {
-  bspc monitor eDP-1 -d 1 2 3 4 
-  bspc monitor HDMI-1 -d 5 6 7 8 
+[ $(xrandr -q | grep -w connected | wc -l) -eq 3 ] &&  {
+  bspc monitor DP-2-1 -d 1 2 3
+  bspc monitor DP-2-2 -d 4 5 6
+  bspc monitor eDP-1 -d 7 8 9 
   $HOME/git/dotfiles/scripts/connect_screens.sh sva
 }
 
+
 # home office 
-[ $(xrandr -q | grep -w connected | wc -l) -eq 3 ] &&  {
-  bspc monitor eDP-1 -d 1 2 3
-  bspc monitor DVI-I-2-2 -d 4 5 6
-  bspc monitor DVI-I-1-1 -d 7 8 9
-  $HOME/git/dotfiles/scripts/connect_screens.sh home
-}
+#[ $(xrandr -q | grep -w connected | wc -l) -eq 3 ] &&  {
+#  bspc monitor eDP-1 -d 1 2 3
+#  bspc monitor DVI-I-2-2 -d 4 5 6
+#  bspc monitor DVI-I-1-1 -d 7 8 9
+#  $HOME/git/dotfiles/scripts/connect_screens.sh home
+#}
 
 $HOME/.config/polybar/launch.sh
 
@@ -45,17 +48,27 @@ bspc config window_gap 10
 WALL=$(find "${HOME}/Pictures/wallpaper/" -type f | sort -R | tail -1)
 wal -n -i $WALL 
 feh --randomize --bg-fill "$WALL"
-bash feh-blur.sh -q -b 4 & 
-. "l${HOME}/.cache/wal/colors.sh"
 
 # rules
+bspc rule -a Nm-connection-editor state=floating
 bspc rule -a Spotify desktop=^1
 bspc rule -a Firefox desktop=^7
-
-###   bspc rule -a "Microsoft Teams - Preview" desktop=^8 state=tiled
-bspc rule -a Slack desktop=^8 state=tiled
-
 bspc rule -a PulseUi state=floating
-bspc rule -a HTW-AI-CG-Tetris state=floating
+bspc rule -a Tetris state=floating
 bspc rule -a Code desktop=^4 state=tiled
 bspc rule -a Pavucontrol state=floating
+bspc rule -a Slack desktop=^9 state=tiled
+bspc rule -a "whatsapp-nativefier-d40211" desktop=^9 state=tiled
+bspc rule -a "Microsoft Teams - Preview" desktop=^9 state=tiled
+bspc rule -a "mail-nativefier-2a283a" desktop=^9 state=tiled
+
+function startIfNotRunning {
+  [ !$(pgrep $1) ] && $1
+}
+
+# autostart
+startIfNotRunning firefox
+startIfNotRunning whatsapp 
+startIfNotRunning spotify 
+startIfNotRunning team  
+startIfNotRunning code 

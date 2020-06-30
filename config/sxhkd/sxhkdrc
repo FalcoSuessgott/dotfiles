@@ -2,6 +2,10 @@
 super + Return
 	alacritty
 
+# network manager gui
+super + n
+  nm-connection-editor
+
 # launch code
 super + c
   code
@@ -13,6 +17,14 @@ super + s
 # teams
 super + t
   teams
+
+# whatsapp
+super + w
+  whatsapp
+
+# mail / outlook
+super + o
+  mail
 
 # launch programm
 super + d

@@ -21,8 +21,6 @@ function main(){
     link config/bash/bash_aliases .bash_aliases
 
     link config/bspwm/bspwmrc .config/bspwm/.
-    link config/bspwm/log.sh .config/bspwm/.
-    link config/bspwm/feh-blur.sh .config/bspwm/.
 
     link config/git/gitconfig .gitconfig
 

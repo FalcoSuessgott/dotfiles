@@ -12,5 +12,5 @@ alias sva="cd ~/git/sva/"
 gq(){
   var=$(gossh) && ssh ${var}
 }
-
+alias gfmt="gofmt -w -s *.go"
 alias clip="clip -selection -c"

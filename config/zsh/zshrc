@@ -181,7 +181,7 @@ export LESS_TERMCAP_us=$'\e[1;4;31m'
 
 export GOROOT=""
 export GOPATH=$HOME/go
-export PATH=$PATH:/bin/go:$GOPATH/bin:${HOME}/.local.bin/
+export PATH=$PATH:/bin/go:$GOPATH/bin:${HOME}/.local.bin/:~/.npm-global/bin
 export _JAVA_AWT_WM_NONREPARENTING=1
 # export PYTHONPATH=~/.local/lib/python2.7/site-packages:~/.local/lib/python3.7/site-packages
 # ------------------------------- ZSH SETTINGS --------------------------------
