@@ -51,8 +51,16 @@ super + m
 	bspc desktop -l next
 
 # move to workspace
-super + {1-9}
-  bspc desktop -f {1-9}
+super + {0-9}
+  bspc desktop -f {0-9}
+
+# resize windows
+super + shift + {Left,Down, Up, Right}
+	bspc node -z {left -20 0,bottom 0 20,top 0 -20,right 20 0}
+
+# send window to desktop and follow
+super + shift + {0-9}
+  bspc node -d {0-9} && bspc desktop -f {0-9}
 
 # move through worspaces
 super + {Left, Right}
