@@ -19,3 +19,5 @@
 	po = "!git push --set-upstream origin \"$(git rev-parse --abbrev-ref HEAD)\""
   co = checkout
   br = for-each-ref --sort=-committerdate refs/heads/ --format='%(HEAD) %(color:yellow)%(refname:short)%(color:reset) - %(color:red)%(objectname:short)%(color:reset) - %(contents:subject) - %(authorname) (%(color:green)%(committerdate:relative)%(color:reset))'
+[url "https://tmorelly:MPuzTJEjKJx6yUG3zYfM@codehub.sva.de"]
+	insteadOf = https://codehub.sva.de

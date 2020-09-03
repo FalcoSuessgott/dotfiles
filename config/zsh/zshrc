@@ -1,165 +1,5 @@
-# neofetch --colors 11 2 11 11 --ascii_colors 15 8 11
-export LF_ICONS="\
-di=:\
-fi=:\
-ln=:\
-or=:\
-ex=:\
-*.c=:\
-*.cc=:\
-*.clj=:\
-*.coffee=:\
-*.cpp=:\
-*.css=:\
-*.d=:\
-*.dart=:\
-*.erl=:\
-*.exs=:\
-*.fs=:\
-*.go=:\
-*.h=:\
-*.hh=:\
-*.hpp=:\
-*.hs=:\
-*.html=:\
-*.java=:\
-*.jl=:\
-*.js=:\
-*.json=:\
-*.lua=:\
-*.md=:\
-*.php=:\
-*.pl=:\
-*.pro=:\
-*.py=:\
-*.rb=:\
-*.rs=:\
-*.scala=:\
-*.ts=:\
-*.vim=:\
-*.cmd=:\
-*.ps1=:\
-*.sh=:\
-*.bash=:\
-*.zsh=:\
-*.fish=:\
-*.tar=:\
-*.tgz=:\
-*.arc=:\
-*.arj=:\
-*.taz=:\
-*.lha=:\
-*.lz4=:\
-*.lzh=:\
-*.lzma=:\
-*.tlz=:\
-*.txz=:\
-*.tzo=:\
-*.t7z=:\
-*.zip=:\
-*.z=:\
-*.dz=:\
-*.gz=:\
-*.lrz=:\
-*.lz=:\
-*.lzo=:\
-*.xz=:\
-*.zst=:\
-*.tzst=:\
-*.bz2=:\
-*.bz=:\
-*.tbz=:\
-*.tbz2=:\
-*.tz=:\
-*.deb=:\
-*.rpm=:\
-*.jar=:\
-*.war=:\
-*.ear=:\
-*.sar=:\
-*.rar=:\
-*.alz=:\
-*.ace=:\
-*.zoo=:\
-*.cpio=:\
-*.7z=:\
-*.rz=:\
-*.cab=:\
-*.wim=:\
-*.swm=:\
-*.dwm=:\
-*.esd=:\
-*.jpg=:\
-*.jpeg=:\
-*.mjpg=:\
-*.mjpeg=:\
-*.gif=:\
-*.bmp=:\
-*.pbm=:\
-*.pgm=:\
-*.ppm=:\
-*.tga=:\
-*.xbm=:\
-*.xpm=:\
-*.tif=:\
-*.tiff=:\
-*.png=:\
-*.svg=:\
-*.svgz=:\
-*.mng=:\
-*.pcx=:\
-*.mov=:\
-*.mpg=:\
-*.mpeg=:\
-*.m2v=:\
-*.mkv=:\
-*.webm=:\
-*.ogm=:\
-*.mp4=:\
-*.m4v=:\
-*.mp4v=:\
-*.vob=:\
-*.qt=:\
-*.nuv=:\
-*.wmv=:\
-*.asf=:\
-*.rm=:\
-*.rmvb=:\
-*.flc=:\
-*.avi=:\
-*.fli=:\
-*.flv=:\
-*.gl=:\
-*.dl=:\
-*.xcf=:\
-*.xwd=:\
-*.yuv=:\
-*.cgm=:\
-*.emf=:\
-*.ogv=:\
-*.ogx=:\
-*.aac=:\
-*.au=:\
-*.flac=:\
-*.m4a=:\
-*.mid=:\
-*.midi=:\
-*.mka=:\
-*.mp3=:\
-*.mpc=:\
-*.ogg=:\
-*.ra=:\
-*.wav=:\
-*.oga=:\
-*.opus=:\
-*.spx=:\
-*.xspf=:\
-*.pdf=:\
-*.nix=:\
-"
 export LANG=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
-
 export VISUAL=vim
 export EDITOR=$VISUAL
 export TERMINAL=st
@@ -170,7 +10,6 @@ auto-ls-custom_function () {
   k -Ah --no-vcs
 }
 
-export ZSH_TAB_TITLE_PREFIX='$USER@$HOST'
 export LESS_TERMCAP_mb=$'\e[1;32m'
 export LESS_TERMCAP_md=$'\e[1;32m'
 export LESS_TERMCAP_me=$'\e[0m'
@@ -181,7 +20,7 @@ export LESS_TERMCAP_us=$'\e[1;4;31m'
 
 export GOROOT=""
 export GOPATH=$HOME/go
-export PATH=$PATH:/bin/go:$GOPATH/bin:${HOME}/.local.bin/:~/.npm-global/bin
+export PATH=$PATH:/bin/go:$GOPATH/bin:${HOME}/.local.bin/:~/.npm-global/bin:$HOME/git/dotfiles/scripts:/home/morelly_t1/.local/lib/python3.8/site-packages
 export _JAVA_AWT_WM_NONREPARENTING=1
 # ------------------------------- ZSH SETTINGS --------------------------------
 # ----- options -----
@@ -223,6 +62,7 @@ bindkey '^[[4~' end-of-line
 bindkey '^[[1;5C' forward-word
 bindkey '^[[1;5D' backward-word
 bindkey '^[[3;5~' kill-word
+bindkey '^i' expand-or-complete-prefix
 
 # ----- promt -----
 PS1="%F{cyan} %~ >%F{blue}> %F{reset}"
@@ -242,6 +82,7 @@ antigen bundle zsh-users/zsh-syntax-highlighting
 antigen bundle colored-man-pages
 antigen bundle zsh-users/zsh-autosuggestions
 antigen bundle desyncr/auto-ls
+antigen bundle Aloxaf/fzf-tab
 antigen theme denysdovhan/spaceship-prompt
 antigen apply
 
@@ -249,6 +90,20 @@ antigen apply
 (cat ~/.cache/wal/sequences &)
 autoload compinit && compinit
 
+
+# FZF TAB
+FZF_TAB_COMMAND=(
+    fzf
+    --ansi   # Enable ANSI color support, necessary for showing groups
+    --expect='$continuous_trigger' # For continuous completion
+    '--color=hl:$(( $#headers == 0 ? 108 : 255 ))'
+    --nth=2,3 --delimiter='\x00'  # Don't search prefix
+    --layout=reverse --height='${FZF_TMUX_HEIGHT:=75%}'
+    --tiebreak=begin -m --bind=tab:down,btab:up,change:top,ctrl-space:toggle --cycle
+    '--query=$query'   # $query will be expanded to query string at runtime.
+    '--header-lines=$#headers' # $#headers will be expanded to lines of headers at runtime
+)
+zstyle ':fzf-tab:*' command $FZF_TAB_COMMAND
 
 # - Spaceship 
 SPACESHIP_PROMPT_ORDER=(
@@ -266,10 +121,11 @@ SPACESHIP_PROMPT_ORDER=(
   char
 )
 source ~/git/dotfiles/scripts/last_commit.sh
+source ~/git/dotfiles/config/bash/icons
 SPACESHIP_PROMPT_FIRST_PREFIX_SHOW=true
 SPACESHIP_GIT_LAST_COMMIT_SHOW=true
-SPACESHIP_PROMPT_ADD_NEWLINE=false
-SPACESHIP_PROMPT_SEPARATE_LINE=false
+SPACESHIP_PROMPT_ADD_NEWLINE=true
+SPACESHIP_PROMPT_SEPARATE_LINE=true
 SPACESHIP_CHAR_SYMBOL=❯
 SPACESHIP_CHAR_SUFFIX=" "
 SPACESHIP_EXIT_CODE_SHOW=true

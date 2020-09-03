@@ -2,6 +2,10 @@
 super + Return
 	alacritty
 
+# scratchpad
+super + g
+  gedit
+
 # network manager gui
 super + n
   nm-connection-editor
@@ -30,9 +34,13 @@ super + o
 super + space
 	ulauncher
 
-# launch lf
+# launch explorer
 super + e
-  alacritty -e "lf" & 
+  nautilus
+
+# launch gedit
+super + g
+  gedit
 
 # make sxhkd reload its configuration files:
 super + Escape
