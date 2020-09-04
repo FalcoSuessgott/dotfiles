@@ -50,8 +50,8 @@ wal -n -i $WALL
 feh --randomize --bg-fill "$WALL"
 
 # rules
-# bspc rula -a Org.gnome.Nautilus state=floating
-bspc rula -a Gedit state=floating
+bspc rule -a Org.gnome.Nautilus state=floating
+bspc rule -a marktext state=floating
 bspc rule -a Nm-connection-editor state=floating
 bspc rule -a Spotify desktop=^1
 bspc rule -a Firefox desktop=^7

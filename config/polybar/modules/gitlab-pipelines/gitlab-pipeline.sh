@@ -1,11 +1,7 @@
 #!/bin/sh
 
-GITLAB_USERNAME="tmorelly"
-GITLAB_SERVER="https://codehub.sva.de"
-GITLAB_ACCESS_TOKEN="yR53waXzzN7VRpVCQafa"
-#GITLAB_ACCESS_TOKEN="cXJujzmafAxmA8GWR4zX"
+. /home/morelly_t1/git/dotfiles/.env
 HOURS_AGO="6"
-
 
 available_projects=$(curl -sH "Private-Token: $GITLAB_ACCESS_TOKEN" \
   "$GITLAB_SERVER/api/v4/projects?membership=true" | jq '.[] | .id')

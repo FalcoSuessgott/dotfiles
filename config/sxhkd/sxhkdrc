@@ -2,10 +2,6 @@
 super + Return
 	alacritty
 
-# scratchpad
-super + g
-  gedit
-
 # network manager gui
 super + n
   nm-connection-editor
@@ -38,9 +34,9 @@ super + space
 super + e
   nautilus
 
-# launch gedit
+# launch markdown editor
 super + g
-  gedit
+  /usr/local/bin/mde
 
 # make sxhkd reload its configuration files:
 super + Escape
