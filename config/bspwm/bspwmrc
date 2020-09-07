@@ -1,7 +1,6 @@
 #!/bin/sh
 
 bspc rule -r "*"
-wmname LG3D & 
 sxhkd &
 xcompmgr &
 

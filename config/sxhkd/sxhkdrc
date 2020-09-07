@@ -1,3 +1,7 @@
+# scratchpad
+super + p
+  tdrop --wm bspwm -am -w 60% -y 30% -x 20% alacritty --config-file ~/git/dotfiles/config/alacritty/scratchpad.yml
+
 # open terminal
 super + Return
 	alacritty
@@ -81,10 +85,6 @@ super + Tab
 # firefox
 super + f 
   firefox
-
-# focus next node
-super + {p,n}
-  bspc node -f {prev, next}.local
 
 # move node to desktop
 super + {y,x}
