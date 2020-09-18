@@ -33,6 +33,8 @@ function main(){
 
     # /scripts 
     link scripts/tdrop  .local/bin/.
+    for f in $(ls scripts/clipmenu/*); do link $f .local/bin/.; done
+
 }
 
 main 

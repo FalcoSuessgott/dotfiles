@@ -1,3 +1,7 @@
+# clipmenu
+super + h
+  clipmenu -i -fn Terminus:size=8 -nb '#002b36' -nf '#839496' -sb '#073642' -sf '#93a1a1'
+
 # scratchpad
 super + p
   tdrop --wm bspwm -am -w 60% -y 30% -x 20% alacritty --config-file ~/git/dotfiles/config/alacritty/scratchpad.yml
