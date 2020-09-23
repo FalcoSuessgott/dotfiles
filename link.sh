@@ -21,6 +21,7 @@ function main(){
     link config/bash/bash_aliases .bash_aliases
     link config/bspwm/bspwmrc .config/bspwm/.
     link config/git/gitconfig .gitconfig
+    link config/flashfocus/flashfocus.yml .config/flashfocus/.
     link config/lf/lfrc .config/lf/.
     link config/polybar/ .config/polybar/.
     link config/profile .profile
