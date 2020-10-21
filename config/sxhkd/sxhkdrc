@@ -8,7 +8,7 @@ super + p
 
 # open terminal
 super + Return
-	alacritty
+	spawn-alacritty-cwd
 
 # network manager gui
 super + n
