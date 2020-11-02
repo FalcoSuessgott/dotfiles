@@ -2,7 +2,6 @@ export LANG=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
 export VISUAL=vim
 export EDITOR=$VISUAL
-export TERMINAL=st
 export AUTO_LS_COMMANDS=(custom_function)
 
 auto-ls-custom_function () {
@@ -21,7 +20,6 @@ export LESS_TERMCAP_us=$'\e[1;4;31m'
 export GOROOT=""
 export GOPATH=$HOME/go
 export PATH=$PATH:/usr/local/go/bin:$GOPATH/bin:${HOME}/.local.bin/:~/.npm-global/bin:$HOME/git/dotfiles/scripts:/home/morelly_t1/.local/lib/python3.8/site-packages
-export _JAVA_AWT_WM_NONREPARENTING=1
 # ------------------------------- ZSH SETTINGS --------------------------------
 # ----- options -----
 unsetopt NO_BEEP
@@ -124,8 +122,8 @@ source ~/git/dotfiles/scripts/last_commit.sh
 source ~/git/dotfiles/config/bash/icons
 SPACESHIP_PROMPT_FIRST_PREFIX_SHOW=true
 SPACESHIP_GIT_LAST_COMMIT_SHOW=true
-SPACESHIP_PROMPT_ADD_NEWLINE=true
-SPACESHIP_PROMPT_SEPARATE_LINE=true
+SPACESHIP_PROMPT_ADD_NEWLINE=false
+export SPACESHIP_PROMPT_SEPARATE_LINE=true
 SPACESHIP_CHAR_SYMBOL=❯
 SPACESHIP_CHAR_SUFFIX=" "
 SPACESHIP_EXIT_CODE_SHOW=true

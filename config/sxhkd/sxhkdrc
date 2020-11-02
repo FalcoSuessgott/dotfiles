@@ -1,3 +1,11 @@
+# window in floating mode
+super + shift + {t, f}
+  bspc node -t {tiled, floating}
+
+# screenshot
+super + . 
+  gnome-screenshot -i
+
 # clipmenu
 super + h
   clipmenu -i -fn Terminus:size=8 -nb '#002b36' -nf '#839496' -sb '#073642' -sf '#93a1a1'
