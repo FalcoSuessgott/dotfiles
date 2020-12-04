@@ -1,3 +1,7 @@
+# tall layout for current desktop
+super + a
+  bsp-layout set tall $(bspc query -D -d focused --names)
+
 # window in floating mode
 super + shift + {t, f}
   bspc node -t {tiled, floating}
