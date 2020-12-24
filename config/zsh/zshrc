@@ -7,6 +7,7 @@ export AUTO_LS_COMMANDS=(custom_function)
 auto-ls-custom_function () {
   echo "$PWD"
   k -Ah --no-vcs
+  [[ -d ".git" ]] && git status
 }
 
 export LESS_TERMCAP_mb=$'\e[1;32m'
@@ -19,7 +20,7 @@ export LESS_TERMCAP_us=$'\e[1;4;31m'
 
 export GOROOT=""
 export GOPATH=$HOME/go
-export PATH=$PATH:/usr/local/go/bin:$GOPATH/bin:${HOME}/.local.bin/:~/.npm-global/bin:$HOME/git/dotfiles/scripts:/home/morelly_t1/.local/lib/python3.8/site-packages
+export PATH=$PATH:/usr/local/go/bin:$GOPATH/bin:${HOME}/.local.bin/:~/.npm-global/bin:$HOME/git/dotfiles/scripts:/home/morelly_t1/.local/lib/python3.8/site-packages:"${KREW_ROOT:-$HOME/.krew}/bin"
 # ------------------------------- ZSH SETTINGS --------------------------------
 # ----- options -----
 unsetopt NO_BEEP
@@ -122,7 +123,7 @@ source ~/git/dotfiles/scripts/last_commit.sh
 source ~/git/dotfiles/config/bash/icons
 SPACESHIP_PROMPT_FIRST_PREFIX_SHOW=true
 SPACESHIP_GIT_LAST_COMMIT_SHOW=true
-SPACESHIP_PROMPT_ADD_NEWLINE=false
+SPACESHIP_PROMPT_ADD_NEWLINE=true
 export SPACESHIP_PROMPT_SEPARATE_LINE=true
 SPACESHIP_CHAR_SYMBOL=❯
 SPACESHIP_CHAR_SUFFIX=" "
