@@ -7,7 +7,7 @@ export AUTO_LS_COMMANDS=(custom_function)
 auto-ls-custom_function () {
   echo "$PWD"
   k -Ah --no-vcs
-  [[ -d ".git" ]] && git status
+  [[ -d ".git" ]] && echo -e "\nStatus:\n$(git -c color.status=always status -s)"
 }
 
 export LESS_TERMCAP_mb=$'\e[1;32m'
