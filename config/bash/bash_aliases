@@ -1,5 +1,5 @@
 alias g="grep"
-alias raspi="ssh $USER@192.168.178.96"
+alias raspi="ssh $USER@192.168.178.84"
 alias dot="cd ~/git/dotfiles"
 alias gd="cd ~/git/"
 alias gdf="cd ~/git/dotfiles"
