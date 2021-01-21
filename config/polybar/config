@@ -1,4 +1,3 @@
-
 [colors]
 black = ${xrdb:color0:#1d2021}
 darkred = ${xrdb:color1:#cc241d}
@@ -23,14 +22,11 @@ foreground = ${xrdb:color257:#ebdbb2}
 background = ${colors.background}
 foreground = ${colors.foreground}
 
-[bar/default]
+[bar/top]
 monitor = ${env:MONITOR:}
 enable-ipc = true
 width = 100%
 height = 24
-;offset-x = 1%
-;offset-y = 1%
-;radius = 6.0
 fixed-center = false
 
 background = ${colors.background}
@@ -53,9 +49,9 @@ font-1 = InconsolataNerdFont:size=8;1
 font-2 = NotoColorEmoji:scale=10:style=Regular;2
 font-3 = Symbola:pixelsize=9;1
 
-modules-left = bspwm 
-modules-center = xwindow
-modules-right = gitlab-pipelines  docker-container vpn-is-running filesystem cpu memory wlan eth battery pulseaudio date
+modules-left = bspwm xwindow
+modules-center = spotify
+modules-right = vpn-is-running date
 
 tray-position = right
 tray-padding = 0
@@ -64,6 +60,52 @@ wm-restack = bspwm
 
 scroll-up = bspwm-desknext
 scroll-down = bspwm-deskprev
+
+[bar/bottom] 
+monitor = ${env:MONITOR:}
+enable-ipc = true
+width = 100%
+height = 24
+fixed-center = false
+bottom = true 
+
+background = ${colors.background}
+foreground = ${colors.foreground}
+
+line-size = 3
+line-color = {$xrdb:red}
+
+border-size = 0
+border-color = ${colors.white}
+
+padding-left = 0
+padding-right = 0
+
+module-margin-left = 1
+module-margin-right = 1
+
+font-0 = mono:pixelsize=9;1
+font-1 = InconsolataNerdFont:size=8;1
+font-2 = NotoColorEmoji:scale=10:style=Regular;2
+font-3 = Symbola:pixelsize=9;1
+
+modules-left = filesystem cpu memory battery temperature
+modules-center = wlan eth 
+modules-right = gitlab-pipelines  docker-container
+
+tray-position = right
+tray-padding = 0
+
+wm-restack = bspwm
+
+[module/spotify]
+type = custom/script
+interval = 1
+format-prefix = " "
+format = <label>
+exec = python ~/.config/polybar/modules/spotify/spotify_status.py -f '{artist}: {song}'
+format-underline = #1db954
+
 
 [module/pulseaudio]
 type = custom/script
@@ -288,33 +330,6 @@ ramp-2 = 
 ramp-3 = 
 ramp-4 = 
 ramp-foreground = ${colors.gray}
-
-[module/powermenu]
-type = custom/menu
-
-format-spacing = 1
-
-label-open = 
-label-open-foreground = ${colors.darkmagenta}
-label-close =  cancel
-label-close-foreground = ${colors.darkmagenta}
-label-separator = |
-label-separator-foreground = ${colors.gray}
-
-menu-0-0 = reboot
-menu-0-0-exec = menu-open-1
-menu-0-1 = power off
-menu-0-1-exec = menu-open-2
-
-menu-1-0 = cancel
-menu-1-0-exec = menu-open-0
-menu-1-1 = reboot
-menu-1-1-exec = sudo reboot
-
-menu-2-0 = power off
-menu-2-0-exec = sudo poweroff
-menu-2-1 = cancel
-menu-2-1-exec = menu-open-0
 
 [settings]
 screenchange-reload = true
