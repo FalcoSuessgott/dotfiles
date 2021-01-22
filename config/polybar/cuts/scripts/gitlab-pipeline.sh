@@ -18,4 +18,4 @@ for id in $available_projects; do
   failed=$((failed +  $(get_pipelines "failed")))
 done
 
-echo "CI/CD: |%{F#7cfc00}$success%{F-}|%{F#ffff00}$running%{F-}|%{F#f00}$failed%{F-}|"
+echo " /%{F#7cfc00}$success%{F-}/%{F#ffff00}$running%{F-}/%{F#f00}$failed%{F-}/"
