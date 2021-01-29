@@ -1,3 +1,4 @@
+export TERM=xterm-256color
 export LANG=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
 export VISUAL=vim
@@ -114,17 +115,15 @@ SPACESHIP_PROMPT_ORDER=(
   terraform
   kubectl
   vi_mode
-  git_last_commit
   exec_time
   exit_code
   char
 )
-source ~/git/dotfiles/scripts/last_commit.sh
 source ~/git/dotfiles/config/bash/icons
+
 SPACESHIP_PROMPT_FIRST_PREFIX_SHOW=true
 SPACESHIP_GIT_LAST_COMMIT_SHOW=true
 SPACESHIP_PROMPT_ADD_NEWLINE=true
-export SPACESHIP_PROMPT_SEPARATE_LINE=true
 SPACESHIP_CHAR_SYMBOL=❯
 SPACESHIP_CHAR_SUFFIX=" "
 SPACESHIP_EXIT_CODE_SHOW=true

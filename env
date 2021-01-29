@@ -1,4 +1,0 @@
-# Polybar Gitlab pipelines module
-GITLAB_USERNAME=""
-GITLAB_SERVER=""
-GITLAB_ACCESS_TOKEN=""

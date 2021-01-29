@@ -8,15 +8,13 @@ flashfocus &
 
 # solo 
 [ $(xrandr -q | grep -w connected | wc -l) -eq 1 ] &&  {
-  bspc monitor eDP-1 -d 1 2 3 4 5 6 7 8 9
+  bspc monitor eDP-1 -d 1 2 3 4 5 6 7 8
 }
 
 # sva
 [ $(xrandr -q | grep -w connected | cut -d " " -f1 | wc -l) = 3 ] && {
   bspc monitor DP-2-1 -d 1 2 3 4 
   bspc monitor DP-2-2 -d 5 6 7 8
-  #bspc monitor eDP-1 -d 7 8 9 
-  # xrandr --output DP-2-2 --auto --right-of DP-2-1 --output eDP-1 --auto --right-of DP-2-2
   xrandr --output DP-2-2 --auto --right-of DP-2-1 
 }
 

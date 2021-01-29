@@ -1,6 +1,11 @@
 .PHONY deps link 
 
 DOTFILES := $(shell pwd)
+ 
+## parts: link, clean, deps, bspwm, alacritty, zsh, bash, polybar, 
+
+
+polybar:
 
 clean:
 
