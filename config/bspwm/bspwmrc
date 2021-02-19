@@ -12,17 +12,20 @@ flashfocus &
 }
 
 # sva
-[ $(xrandr -q | grep -w connected | cut -d " " -f1 | wc -l) = 3 ] && {
-  bspc monitor DP-2-1 -d 1 2 3 4 
-  bspc monitor DP-2-2 -d 5 6 7 8
-  xrandr --output DP-2-2 --auto --right-of DP-2-1 
-}
+#[ $(xrandr -q | grep -w connected | cut -d " " -f1 | wc -l) = 3 ] && {
+#  bspc monitor DP-2-1 -d 1 2 3 4 
+#  bspc monitor DP-2-2 -d 5 6 7 8
+#  xrandr --output DP-2-2 --auto --right-of DP-2-1 
+#}
 
 #  home office
-[ $(xrandr -q | grep -w connected | cut -d " " -f1 | wc -l) = 2 ] && {
-  bspc monitor eDP-1 -d 1 2 3 4
-  bspc monitor DVI-I-1-1 -d 5 6 7 8
-  xrandr --output DVI-I-1-1 --auto --right-of eDP-1 
+[ $(xrandr -q | grep -w connected | cut -d " " -f1 | wc -l) = 3 ] && {
+  xrandr --output eDP-1 --auto --right-of DVI-I-2-2
+  xrandr --output DVI-I-2-2 --auto --right-of DVI-I-1-1
+  xrandr --output DVI-I-1-1 --auto --left-of DVI-I-2-2
+  bspc monitor DVI-I-1-1 -d 1 2 3
+  bspc monitor DVI-I-2-2 -d 4 5 6
+  bspc monitor eDP-1 -d 7 8 9
 }
 
 $HOME/.config/polybar/launch.sh
@@ -51,14 +54,12 @@ feh --randomize --bg-fill "$WALL"
 bspc rule -a Org.gnome.Nautilus state=floating
 bspc rule -a marktext state=floating
 bspc rule -a Nm-connection-editor state=floating
-bspc rule -a Spotify desktop=^1
-bspc rule -a Firefox desktop=^7
+bspc rule -a Spotify desktop=^7
+bspc rule -a Firefox desktop=^1
 bspc rule -a PulseUi state=floating
-bspc rule -a Tetris state=floating
-bspc rule -a Code desktop=^5 state=tiled
+bspc rule -a Code desktop=^4 state=tiled
 bspc rule -a Pavucontrol state=floating
-bspc rule -a Slack desktop=^9 state=tiled
 bspc rule -a "whatsapp-nativefier-d40211" desktop=^8 state=tiled
-bspc rule -a "Microsoft Teams - Preview" desktop=^8 state=tiled
+bspc rule -a "Microsoft Teams - Preview" desktop=^9 state=tiled
 bspc rule -a "mail-nativefier-2a283a" desktop=^8 state=tiled
 bspc rule -a "monero-core" state=floating
