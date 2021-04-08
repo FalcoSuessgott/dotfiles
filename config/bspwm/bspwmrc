@@ -3,8 +3,6 @@
 bspc rule -r "*"
 sxhkd &
 xcompmgr &
-clipmenud & 
-flashfocus &
 
 # solo 
 [ $(xrandr -q | grep -w connected | wc -l) -eq 1 ] &&  {
@@ -46,7 +44,9 @@ bspc config border_width 2
 bspc config window_gap 10
 
 # random background for all screens 
-WALL=$(find "${HOME}/Pictures/wallpaper/" -type f | sort -R | tail -1)
+#WALL=$(find "${HOME}/Pictures/wallpaper/" -type f | sort -R | tail -1)
+WALL="${HOME}/Pictures/wallpaper/O67jSK4.jpeg"
+
 wal -n -i $WALL 
 feh --randomize --bg-fill "$WALL"
 

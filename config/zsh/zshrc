@@ -5,9 +5,10 @@ export VISUAL=vim
 export EDITOR=$VISUAL
 export AUTO_LS_COMMANDS=(custom_function)
 
+source ~/.bash_profile
 auto-ls-custom_function () {
   echo "$PWD"
-  k -Ah --no-vcs
+  exa -l
   [[ -d ".git" ]] && echo -e "\nStatus:\n$(git -c color.status=always status -s)"
 }
 
@@ -21,7 +22,7 @@ export LESS_TERMCAP_us=$'\e[1;4;31m'
 
 export GOROOT=""
 export GOPATH=$HOME/go
-export PATH=$PATH:/usr/local/go/bin:$GOPATH/bin:${HOME}/.local.bin/:~/.npm-global/bin:$HOME/git/dotfiles/scripts:/home/morelly_t1/.local/lib/python3.8/site-packages:"${KREW_ROOT:-$HOME/.krew}/bin"
+export PATH=$PATH:/usr/local/go/bin:$GOPATH/bin:${HOME}/.local.bin/:~/.npm-global/bin:$HOME/git/github/dotfiles/scripts:/home/morelly_t1/.local/lib/python3.8/site-packages:"${KREW_ROOT:-$HOME/.krew}/bin"
 # ------------------------------- ZSH SETTINGS --------------------------------
 # ----- options -----
 unsetopt NO_BEEP
@@ -76,13 +77,14 @@ antigen use oh-my-zsh
 antigen bundle gko/ssh-connect
 antigen bundle akarzim/zsh-docker-aliases
 antigen bundle djui/alias-tips
-antigen bundle supercrabtree/k 
+# antigen bundle supercrabtree/k 
 antigen bundle trystan2k/zsh-tab-title
 antigen bundle zsh-users/zsh-syntax-highlighting
 antigen bundle colored-man-pages
 antigen bundle zsh-users/zsh-autosuggestions
 antigen bundle desyncr/auto-ls
 antigen bundle Aloxaf/fzf-tab
+antigen bundle kubectl
 antigen theme denysdovhan/spaceship-prompt
 antigen apply
 
@@ -119,7 +121,7 @@ SPACESHIP_PROMPT_ORDER=(
   exit_code
   char
 )
-source ~/git/dotfiles/config/bash/icons
+source ~/git/github/dotfiles/config/bash/icons
 
 SPACESHIP_PROMPT_FIRST_PREFIX_SHOW=true
 SPACESHIP_GIT_LAST_COMMIT_SHOW=true
@@ -139,6 +141,7 @@ if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
 fi
 
-
+alias k="kubectl"
+autoload -U +X compinit && compinit
 autoload -U +X bashcompinit && bashcompinit
-complete -o nospace -C /usr/local/bin/vault vault
+

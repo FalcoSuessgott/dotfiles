@@ -11,7 +11,7 @@ killall -q polybar
 while pgrep -u $UID -x polybar >/dev/null; do sleep 1; done
 
 # load envs
-. ~/git/dotfiles/.env
+. ~/git/github/dotfiles/.env
 
 # Launch the bar
 for m in $(polybar --list-monitors | cut -d ":" -f1);do
