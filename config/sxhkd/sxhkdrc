@@ -16,7 +16,7 @@ super + h
 
 # scratchpad
 super + p
-  drop --wm bspwm -am -w 60% -y 30% -x 20% alacritty --config-file ~/git/github/dotfiles/config/alacritty/scratchpad.yml
+  tdrop --wm bspwm -am -w 60% -y 30% -x 20% alacritty --config-file ~/git/github/dotfiles/config/alacritty/scratchpad.yml
 
 # open terminal
 super + Return

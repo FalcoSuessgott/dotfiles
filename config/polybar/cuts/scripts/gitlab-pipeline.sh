@@ -1,6 +1,5 @@
 #!/bin/sh
 
-. /home/morelly_t1/git/github/dotfiles/.env
 HOURS_AGO="6"
 
 available_projects=$(curl -sH "Private-Token: $GITLAB_ACCESS_TOKEN" \
