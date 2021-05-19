@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/sh
 
 bspc rule -r "*"
 kill $(pgrep sxhkd); sxhkd &
@@ -18,11 +18,10 @@ kill $(pgrep xcompmgr); xcompmgr &
 
 #  home office
 [ $(xrandr -q | grep -w connected | cut -d " " -f1 | wc -l) = 3 ] && {
-  xrandr --output eDP-1 --auto --right-of DVI-I-2-2
-  xrandr --output DVI-I-2-2 --auto --right-of DVI-I-1-1
-  xrandr --output DVI-I-1-1 --auto --left-of DVI-I-2-2
-  bspc monitor DVI-I-1-1 -d 1 2 3
-  bspc monitor DVI-I-2-2 -d 4 5 6
+  xrandr --output eDP-1 --auto --right-of DP-2-3
+  xrandr --output DP-2-3 --auto --right-of DP-2-2
+  bspc monitor DP-2-3 -d 4 5 6
+  bspc monitor DP-2-2 -d 1 2 3
   bspc monitor eDP-1 -d 7 8 9
 }
 

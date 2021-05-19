@@ -145,3 +145,8 @@ alias k="kubectl"
 autoload -U +X compinit && compinit
 autoload -U +X bashcompinit && bashcompinit
 
+# GoLang
+export GOROOT=/home/morelly_t1/.go
+export PATH=$GOROOT/bin:$PATH
+export GOPATH=/home/morelly_t1/go
+export PATH=$GOPATH/bin:$PATH
