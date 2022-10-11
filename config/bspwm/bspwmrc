@@ -1,32 +1,30 @@
-#!/usr/bin/env bash
+#! /bin/sh
 
-bspc rule -r "*"
 kill $(pgrep sxhkd); sxhkd &
 kill $(pgrep xcompmgr); xcompmgr &
 
-# solo 
+# solo
 [ $(xrandr -q | grep -w connected | wc -l) -eq 1 ] &&  {
-  bspc monitor eDP-1 -d 1 2 3 4 5 6 7 8
+	bspc monitor -d 1 2 3 4 5 6 7 8 9
+	xrandr --output eDP-1 --mode 2560x1600 
 }
 
 # sva
-#[ $(xrandr -q | grep -w connected | cut -d " " -f1 | wc -l) = 3 ] && {
-#  bspc monitor DP-2-1 -d 1 2 3 4 
-#  bspc monitor DP-2-2 -d 5 6 7 8
-#  xrandr --output DP-2-2 --auto --right-of DP-2-1 
-#}
-
-#  home office
 [ $(xrandr -q | grep -w connected | cut -d " " -f1 | wc -l) = 3 ] && {
-  xrandr --output eDP-1 --auto --right-of DVI-I-2-2
-  xrandr --output DVI-I-2-2 --auto --right-of DVI-I-1-1
-  xrandr --output DVI-I-1-1 --auto --left-of DVI-I-2-2
-  bspc monitor DVI-I-1-1 -d 1 2 3
-  bspc monitor DVI-I-2-2 -d 4 5 6
+  xrandr --output eDP-1 --mode 2560x1600 --right-of DP-3-1
+  xrandr --output DP-3-1 --auto --right-of DP-3-3
+  #xrandr --output eDP-1 --mode 2560x1600 --right-of DP-3-2
+  #xrandr --output DP-3-2 --auto --right-of DP-3-1
+  bspc monitor DP-3-3 -d 1 2 3
+  bspc monitor DP-3-1 -d 4 5 6
+  #bspc monitor DP-3-1 -d 1 2 3
+  #bspc monitor DP-3-2 -d 4 5 6
   bspc monitor eDP-1 -d 7 8 9
 }
 
 $HOME/.config/polybar/launch.sh
+
+feh --bg-fill ~/git/dotfiles/config/wallpaper/wallpaper.jpg
 
 bspc config border_width         2
 bspc config window_gap          12
@@ -37,30 +35,14 @@ bspc config gapless_monocle      true
 bspc config focus_follows_pointer true
 
 ###---Monitor And Desktop Settings----###
-bspc config top_padding 32
-bspc config bottom_padding 10
-bspc config left_padding 10
-bspc config right_padding 10
+bspc config top_padding 24
+bspc config bottom_padding 24
+bspc config left_padding 4
+bspc config right_padding 4
 bspc config border_width 2
 bspc config window_gap 10
 
-# random background for all screens 
-#WALL=$(find "${HOME}/Pictures/wallpaper/" -type f | sort -R | tail -1)
-WALL="${HOME}/Pictures/wallpaper/O67jSK4.jpeg"
-
-wal -n -i $WALL 
-feh --randomize --bg-fill "$WALL"
-
-# rules
-bspc rule -a Org.gnome.Nautilus state=floating
-bspc rule -a marktext state=floating
-bspc rule -a Nm-connection-editor state=floating
-bspc rule -a Spotify desktop=^7
-bspc rule -a Firefox desktop=^1
-bspc rule -a PulseUi state=floating
-bspc rule -a Code desktop=^4 state=tiled
-bspc rule -a Pavucontrol state=floating
-bspc rule -a "whatsapp-nativefier-d40211" desktop=^8 state=tiled
-bspc rule -a "Microsoft Teams - Preview" desktop=^9 state=tiled
-bspc rule -a "mail-nativefier-2a283a" desktop=^8 state=tiled
-bspc rule -a "monero-core" state=floating
+#### Rules ###
+bspc rule -a "PulseUI" state=floating
+bspc rule -a "1Password" state=floating
+bspc rule -a "Org.gnome.Nautilus"  state=floating

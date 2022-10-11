@@ -117,3 +117,5 @@ PATH=$GOPATH/bin:$PATH
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 alias k=kubectl
 complete -C /usr/local/bin/vault vault
+
+[[ -s "/home/morelly_t1/.gvm/scripts/gvm" ]] && source "/home/morelly_t1/.gvm/scripts/gvm"

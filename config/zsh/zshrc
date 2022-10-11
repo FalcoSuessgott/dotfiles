@@ -5,7 +5,7 @@ export VISUAL=vim
 export EDITOR=$VISUAL
 export AUTO_LS_COMMANDS=(custom_function)
 
-source ~/.bash_profile
+# source ~/.bash_profile
 auto-ls-custom_function () {
   echo "$PWD"
   exa -l
@@ -20,9 +20,9 @@ export LESS_TERMCAP_so=$'\e[01;33m'
 export LESS_TERMCAP_ue=$'\e[0m'
 export LESS_TERMCAP_us=$'\e[1;4;31m'
 
-export GOROOT=""
 export GOPATH=$HOME/go
-export PATH=$PATH:/usr/local/go/bin:$GOPATH/bin:${HOME}/.local.bin/:~/.npm-global/bin:$HOME/git/github/dotfiles/scripts:/home/morelly_t1/.local/lib/python3.8/site-packages:"${KREW_ROOT:-$HOME/.krew}/bin"
+export PATH=$PATH:/usr/local/go/bin:$GOPATH/bin:${HOME}/.local.bin/:$HOME/git/github/dotfiles/scripts:$HOME/.tfenv/bin
+
 # ------------------------------- ZSH SETTINGS --------------------------------
 # ----- options -----
 unsetopt NO_BEEP
@@ -77,52 +77,32 @@ antigen use oh-my-zsh
 antigen bundle gko/ssh-connect
 antigen bundle akarzim/zsh-docker-aliases
 antigen bundle djui/alias-tips
-# antigen bundle supercrabtree/k 
 antigen bundle trystan2k/zsh-tab-title
 antigen bundle zsh-users/zsh-syntax-highlighting
 antigen bundle colored-man-pages
 antigen bundle zsh-users/zsh-autosuggestions
 antigen bundle desyncr/auto-ls
-antigen bundle Aloxaf/fzf-tab
-antigen bundle kubectl
 antigen theme denysdovhan/spaceship-prompt
 antigen apply
 
 [[ -s /home/$USER/.autojump/etc/profile.d/autojump.sh ]] && source /home/$USER/.autojump/etc/profile.d/autojump.sh
-(cat ~/.cache/wal/sequences &)
 autoload compinit && compinit
-
-
-# FZF TAB
-FZF_TAB_COMMAND=(
-    fzf
-    --ansi   # Enable ANSI color support, necessary for showing groups
-    --expect='$continuous_trigger' # For continuous completion
-    '--color=hl:$(( $#headers == 0 ? 108 : 255 ))'
-    --nth=2,3 --delimiter='\x00'  # Don't search prefix
-    --layout=reverse --height='${FZF_TMUX_HEIGHT:=75%}'
-    --tiebreak=begin -m --bind=tab:down,btab:up,change:top,ctrl-space:toggle --cycle
-    '--query=$query'   # $query will be expanded to query string at runtime.
-    '--header-lines=$#headers' # $#headers will be expanded to lines of headers at runtime
-)
-zstyle ':fzf-tab:*' command $FZF_TAB_COMMAND
 
 # - Spaceship 
 SPACESHIP_PROMPT_ORDER=(
-  time
+  user
+  host
   dir
   git
   golang
-  docker
   terraform
-  kubectl
-  vi_mode
   exec_time
   exit_code
   char
 )
-source ~/git/github/dotfiles/config/bash/icons
 
+SPACESHIP_USER_SHOW="always"
+SPACESHIP_HOST_SHOW="always"
 SPACESHIP_PROMPT_FIRST_PREFIX_SHOW=true
 SPACESHIP_GIT_LAST_COMMIT_SHOW=true
 SPACESHIP_PROMPT_ADD_NEWLINE=true
@@ -141,7 +121,10 @@ if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
 fi
 
-alias k="kubectl"
 autoload -U +X compinit && compinit
 autoload -U +X bashcompinit && bashcompinit
 
+# GoLang
+export PATH=$GOROOT/bin:$PATH
+export GOPATH=/home/morelly_t1/go
+source /home/morelly_t1/.gvm/scripts/gvm

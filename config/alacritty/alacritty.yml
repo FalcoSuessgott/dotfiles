@@ -23,7 +23,7 @@ font:
   normal:
     family: mono
     style: Medium
-  size: 11
+  size: 8
   offset:
     x: -1
     y: -1
@@ -80,7 +80,8 @@ visual_bell:
   duration: 0
   color: '#ffffff'
 
-background_opacity: 0.7
+window:
+  opacity: 0.8
 
 selection:
   semantic_escape_chars: ",│`|:\"' ()[]{}<>\t"
@@ -99,12 +100,17 @@ working_directory: /home/morelly_t1/git
 mouse:
   double_click: { threshold: 300 }
   triple_click: { threshold: 300 }
-  url:
-    launcher:
-      program: xdg-open
-      args: []
-
-    modifiers: None
+  hints:
+    enabled:
+      - regex: "(magnet:|mailto:|gemini:|gopher:|https:|http:|news:|file:|git:|ssh:|ftp:)[^\u0000-\u001F\u007F-\u009F<>\"\\s{-}\\^⟨⟩`]+"
+        command: xdg-open
+        post_processing: true
+        mouse:
+          enabled: true
+          mods: Control
+        binding:
+          key: U
+          mods: Control|Shift
 
 mouse_bindings:
   - { mouse: Middle, action: Copy }
@@ -116,8 +122,8 @@ key_bindings:
   - { key: Y,        mods: Control,       action: Copy             }
   - { key: Key0,     mods: Control,       action: ResetFontSize    }
   - { key: Equals,   mods: Control,       action: IncreaseFontSize }
-  - { key: Add,      mods: Control,       action: IncreaseFontSize }
-  - { key: Subtract, mods: Control,       action: DecreaseFontSize }
+  - { key: Plus,      mods: Control,       action: IncreaseFontSize }
+  - { key: NumpadSubtract, mods: Control,       action: DecreaseFontSize }
   - { key: Minus,    mods: Control,       action: DecreaseFontSize }
 
 debug:
