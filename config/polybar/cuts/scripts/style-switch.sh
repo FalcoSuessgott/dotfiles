@@ -1,15 +1,20 @@
 #!/usr/bin/env bash
 
-SDIR="$HOME/.config/polybar/blocks/scripts"
+SDIR="$HOME/.config/polybar/cuts/scripts"
 
 # Launch Rofi
 MENU="$(rofi -no-config -no-lazy-grab -sep "|" -dmenu -i -p '' \
 -theme $SDIR/rofi/styles.rasi \
-<<< " Default| Nord| Gruvbox| Adapta| Cherry|")"
+<<< " Black| Adapta| Dark| Red| Green| Teal| Gruvbox| Nord| Solarized| Cherry|")"
             case "$MENU" in
-				*Default) "$SDIR"/styles.sh --default ;;
-				*Nord) "$SDIR"/styles.sh --nord ;;
-				*Gruvbox) "$SDIR"/styles.sh --gruvbox ;;
-				*Adapta) "$SDIR"/styles.sh --adapta ;;
-				*Cherry) "$SDIR"/styles.sh --cherry ;;
+				*Black) "$SDIR"/styles.sh --mode1 ;;
+				*Adapta) "$SDIR"/styles.sh --mode2 ;;
+				*Dark) "$SDIR"/styles.sh --mode3 ;;
+				*Red) "$SDIR"/styles.sh --mode4 ;;
+				*Green) "$SDIR"/styles.sh --mode5 ;;
+				*Teal) "$SDIR"/styles.sh --mode6 ;;
+				*Gruvbox) "$SDIR"/styles.sh --mode7 ;;
+				*Nord) "$SDIR"/styles.sh --mode8 ;;
+				*Solarized) "$SDIR"/styles.sh --mode9 ;;
+				*Cherry) "$SDIR"/styles.sh --mode10 ;;
             esac

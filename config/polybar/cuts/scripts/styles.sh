@@ -1,16 +1,16 @@
 #!/usr/bin/env bash
 
 # Color files
-PFILE="$HOME/.config/polybar/blocks/colors.ini"
-RFILE="$HOME/.config/polybar/blocks/scripts/rofi/colors.rasi"
+PFILE="$HOME/.config/polybar/cuts/colors.ini"
+RFILE="$HOME/.config/polybar/cuts/scripts/rofi/colors.rasi"
 
 # Change colors
 change_color() {
 	# polybar
-	sed -i -e "s/background = #.*/background = $BG/g" $PFILE
-	sed -i -e "s/background-alt = #.*/background-alt = $BGA/g" $PFILE
-	sed -i -e "s/foreground = #.*/foreground = $FG/g" $PFILE
-	sed -i -e "s/foreground-alt = #.*/foreground-alt = $FGA/g" $PFILE
+	sed -i -e "s/background = #.*/background = #${BG}/g" $PFILE
+	sed -i -e "s/background-alt = #.*/background-alt = #8C${BG}/g" $PFILE
+	sed -i -e "s/foreground = #.*/foreground = #${FG}/g" $PFILE
+	sed -i -e "s/foreground-alt = #.*/foreground-alt = #33${FG}/g" $PFILE
 	sed -i -e "s/primary = #.*/primary = $AC/g" $PFILE
 	
 	# rofi
@@ -19,56 +19,71 @@ change_color() {
 
 	* {
 	  al:   #00000000;
-	  bg:   ${BG}FF;
-	  bga:  ${BGA}FF;
-	  fga:  ${FGA}FF;
-	  fg:   ${FG}FF;
+	  bg:   #${BG}BF;
+	  bga:  #${BG}FF;
+	  fg:   #${FG}FF;
 	  ac:   ${AC}FF;
-	  se:   ${AC}40;
+	  se:   ${AC}1A;
 	}
 	EOF
 	
 	polybar-msg cmd restart
 }
 
-if  [[ $1 = "--default" ]]; then
-	BG="#2f343f"
-	BGA="#C4C7C5"
-	FGA="#C4C7C5"
-	FG="#1C1E20"
-	AC="#B4BC67"
+if  [[ $1 = "--mode1" ]]; then
+	BG="0a0a0a"
+	FG="f5f5f5"
+	AC="#fdd835"
 	change_color
-elif  [[ $1 = "--nord" ]]; then
-	BG="#3B4252"
-	BGA="#4C566A"
-	FGA="#E5E9F0"
-	FG="#ECEFF4"
-	AC="#A3BE8C"
+elif  [[ $1 = "--mode2" ]]; then
+	BG="263238"
+	FG="DFDFDF"
+	AC="#00BCD4"
 	change_color
-elif  [[ $1 = "--gruvbox" ]]; then
-	BG="#282828"
-	BGA="#EBDBB2"
-	FGA="#EBDBB2"
-	FG="#282828"
-	AC="#CC241D"
+elif  [[ $1 = "--mode3" ]]; then
+	BG="112526"
+	FG="C4AAA5"
+	AC="#EE7313"
 	change_color
-elif  [[ $1 = "--adapta" ]]; then
-	BG="#243035"
-	BGA="#38444A"
-	FGA="#FDF6E3"
-	FG="#FFFFFF"
-	AC="#4DD0E1"
+elif  [[ $1 = "--mode4" ]]; then
+	BG="461320"
+	FG="f5f5f5"
+	AC="#fdd835"
 	change_color
-elif  [[ $1 = "--cherry" ]]; then
-	BG="#1F1626"
-	BGA="#423949"
-	FGA="#FFFFFF"
-	FG="#FFFFFF"
-	AC="#D94085"
+elif  [[ $1 = "--mode5" ]]; then
+	BG="092F1C"
+	FG="f5f5f5"
+	AC="#fdd835"
+	change_color
+elif  [[ $1 = "--mode6" ]]; then
+	BG="003C3C"
+	FG="CFCFCF"
+	AC="#00acc1"
+	change_color
+elif  [[ $1 = "--mode7" ]]; then
+	BG="3C3836"
+	FG="EBDBB2"
+	AC="#FB4934"
+	change_color
+elif  [[ $1 = "--mode8" ]]; then
+	BG="2E3440"
+	FG="D8DEE9"
+	AC="#BF616A"
+	change_color
+elif  [[ $1 = "--mode9" ]]; then
+	BG="002b36"
+	FG="839496"
+	AC="#b58900"
+	change_color
+elif  [[ $1 = "--mode10" ]]; then
+	BG="1F1626"
+	FG="FFFFFF"
+	AC="#FFD16F"
 	change_color
 else
 	cat <<- _EOF_
 	No option specified, Available options:
-	--default    --nord    --gruvbox    --adapta    --cherry
+	--mode1   --mode2   --mode3   --mode4   --mode5
+	--mode6   --mode7   --mode8   --mode9   --mode10
 	_EOF_
 fi

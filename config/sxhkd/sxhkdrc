@@ -1,62 +1,21 @@
-# tall layout for current desktop
-super + a
-  bsp-layout set tall $(bspc query -D -d focused --names)
-
-# window in floating mode
-super + shift + {t, f}
-  bspc node -t {tiled, floating}
-
-# screenshot
-super + . 
-  gnome-screenshot -i
-
-# clipmenu
-super + h
-  clipmenu -i -fn Terminus:size=8 -nb '#002b36' -nf '#839496' -sb '#073642' -sf '#93a1a1'
-
-# scratchpad
-super + p
-  tdrop --wm bspwm -am -w 60% -y 30% -x 20% alacritty --config-file ~/git/github/dotfiles/config/alacritty/scratchpad.yml
-
 # open terminal
 super + Return
 	spawn-alacritty-cwd
-
-# network manager gui
-super + n
-  nm-connection-editor
-
-# launch code
-super + c
-  code
-
-# launch spotify
-super + s
-  spotify
-
-# teams
-super + t
-  teams
-
-# whatsapp
-super + w
-  whatsapp
-
-# mail / outlook
-super + o
-  mail
 
 # launch programm
 super + space
 	ulauncher
 
+# launch vscode
+super + c 
+	code
 # launch explorer
 super + e
-  nautilus
+	nautilus
 
-# launch markdown editor
-super + g
-  /usr/local/bin/mde
+# lock
+super + l
+	betterlockscreen -l dim
 
 # make sxhkd reload its configuration files:
 super + Escape
@@ -69,10 +28,6 @@ super + alt + {q,r}
 # close and kill selected window
 super + q
 	bspc node --close
-
-# alternate between the tiled and monocle layout
-super + m
-	bspc desktop -l next
 
 # move to workspace
 super + {0-9}
@@ -90,10 +45,6 @@ super + shift + {0-9}
 super + {Left, Right}
   bspc desktop -f {prev, next}
 
-# lock screen
-super + l
-  i3lock-fancy
-
 # swap current node with biggest
 super + Tab
   bspc node -s biggest
@@ -105,5 +56,3 @@ super + f
 # move node to desktop
 super + {y,x}
   id=$(bspc query --nodes --node); bspc node --to-desktop {prev,next}; bspc desktop --focus next; bspc node --focus ${id} 
-
-
