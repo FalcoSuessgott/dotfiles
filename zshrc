@@ -8,7 +8,7 @@ export AUTO_LS_COMMANDS=(custom_function)
 # source ~/.bash_profile
 auto-ls-custom_function () {
   echo "$PWD"
-  exa -l
+  eza -l  --icons=auto
   [[ -d ".git" ]] && echo -e "\nStatus:\n$(git -c color.status=always status -s)"
 }
 
@@ -20,8 +20,6 @@ export LESS_TERMCAP_so=$'\e[01;33m'
 export LESS_TERMCAP_ue=$'\e[0m'
 export LESS_TERMCAP_us=$'\e[1;4;31m'
 
-export GOPATH=$HOME/go
-export PATH=$PATH:/usr/local/go/bin:$GOPATH/bin:${HOME}/.local.bin/:$HOME/git/github/dotfiles/scripts:$HOME/.tfenv/bin
 
 # ------------------------------- ZSH SETTINGS --------------------------------
 # ----- options -----
@@ -70,13 +68,10 @@ PS1="%F{cyan} %~ >%F{blue}> %F{reset}"
 
 # ----- plugins -----
 source ~/antigen.zsh
-source ~/.oh-my-zsh/custom/plugins/git-flow-completion/git-flow-completion.zsh
-source ~/.oh-my-zsh/custom/plugins/git/git.plugin.zsh
 
 antigen use oh-my-zsh
-antigen bundle gko/ssh-connect
-antigen bundle akarzim/zsh-docker-aliases
 antigen bundle djui/alias-tips
+antigen bundle Aloxaf/fzf-tab
 antigen bundle trystan2k/zsh-tab-title
 antigen bundle zsh-users/zsh-syntax-highlighting
 antigen bundle colored-man-pages
@@ -86,7 +81,6 @@ antigen theme denysdovhan/spaceship-prompt
 antigen apply
 
 [[ -s /home/$USER/.autojump/etc/profile.d/autojump.sh ]] && source /home/$USER/.autojump/etc/profile.d/autojump.sh
-autoload compinit && compinit
 
 # - Spaceship 
 SPACESHIP_PROMPT_ORDER=(
@@ -124,7 +118,11 @@ fi
 autoload -U +X compinit && compinit
 autoload -U +X bashcompinit && bashcompinit
 
-# GoLang
-export PATH=$GOROOT/bin:$PATH
-export GOPATH=/home/morelly_t1/go
-source /home/morelly_t1/.gvm/scripts/gvm
+(echo; echo 'eval "$(/opt/homebrew/bin/brew shellenv)"') >> /Users/tommorelly/.zprofile
+eval "$(/opt/homebrew/bin/brew shellenv)"
+source "/opt/homebrew/opt/spaceship/spaceship.zsh"
+
+export GOROOT=$HOME/go
+export PATH=$PATH:$GOROOT/bin
+
+[[ -s "/Users/tommorelly/.gvm/scripts/gvm" ]] && source "/Users/tommorelly/.gvm/scripts/gvm"
